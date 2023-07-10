@@ -1,0 +1,714 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter-medium;
+  /* background-color: #F6F6F6; */
+  background-color: #f6f6f6;
+  color: #333333;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  font-family: Inter-medium;
+  font-size: 64px;
+  margin: 0;
+}
+
+h2 {
+  font-family: Inter-medium;
+  font-size: 40px;
+  margin: 0;
+}
+
+h3 {
+  font-family: Inter-medium;
+  font-size: 40px;
+  margin: 0;
+}
+
+h4 {
+  font-family: Inter-medium;
+  font-size: 32px;
+  margin: 0;
+}
+
+h5 {
+  font-family: Inter-medium;
+  font-size: 20px;
+  margin: 0;
+}
+
+h6 {
+  font-family: Inter-medium;
+  font-size: 14px;
+  margin: 0;
+}
+
+p {
+  font-family: Inter-medium;
+  font-size: 12px;
+  margin: 0;
+}
+
+span {
+  font-family: Inter-medium;
+  font-size: 10px;
+  margin: 0;
+}
+
+.text-small {
+  font-family: Inter-medium;
+  font-size: 8px;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Inter-medium";
+  src: url("../../fonts/Inter-Medium.woff");
+}
+
+@font-face {
+  font-family: "Inter-bold";
+  src: url("../../fonts/Inter-Bold.woff");
+}
+
+@font-face {
+  font-family: "Inter-semibold";
+  src: url("../../fonts/Inter-SemiBold.woff");
+}
+
+.bold {
+  font-family: Inter-bold;
+}
+
+.semi-bold {
+  font-family: Inter-semibold;
+}
+
+/* COLOUR */
+.light {
+  color: #ffff;
+}
+
+.grey {
+  color: #7c7c7c;
+}
+
+.deep-grey {
+  color: #d9d9d9;
+}
+
+.dark-grey {
+  color: #777777;
+}
+
+.light-grey {
+  color: #f6f6f6;
+}
+
+.black {
+  color: #333333;
+}
+
+.purple {
+  color: #9d28dd;
+}
+
+.light-purple {
+  color: #f0d5ff;
+}
+
+/* BACKGROUND COLOUR */
+
+.bg-light {
+  background-color: #ffff !important;
+}
+
+.bg-grey {
+  background-color: #7c7c7c;
+}
+
+.bg-light-grey {
+  background-color: #f6f6f6;
+}
+
+.bg-black {
+  background-color: #333333;
+}
+
+.bg-purple {
+  background-color: #9d28dd;
+}
+
+.bg-light-purple {
+  background-color: #f0d5ff;
+}
+
+.bg-deep-grey {
+  background-color: #d9d9d9;
+}
+
+.bg-dark-grey {
+  background-color: #777777;
+}
+
+.bg-gradient-purple {
+  background: linear-gradient(281.94deg, #9d28dd 2.21%, #de5dfe 94.1%);
+}
+
+.bg-dark-blue {
+  background-color: #201b3e;
+}
+
+/* PSYCOLOG COLOUR TEAM */
+
+.apd {
+  color: #ae7fab;
+}
+
+.bg-apd {
+  background-color: #ae7fab;
+}
+
+.mr {
+  color: #8a2223;
+}
+
+.bg-mr {
+  background-color: #8a2223;
+}
+
+.qc {
+  color: #ec7599;
+}
+
+.bg-qc {
+  background-color: #ec7599;
+}
+
+.it {
+  color: #71d0c8;
+}
+
+.bg-it {
+  background-color: #71d0c8;
+}
+
+.hrd {
+  color: #77c77e;
+}
+
+.bg-hrd {
+  background-color: #77c77e;
+}
+
+.other {
+  color: #e9e8e8;
+}
+
+.bg-other {
+  background-color: #e9e8e8;
+}
+
+.ppic {
+  color: #9b543c;
+}
+
+.bg-ppic {
+  background-color: #9b543c;
+}
+
+.hr {
+  color: #fab05c;
+}
+
+.bg-hr {
+  background-color: #fab05c;
+}
+
+.assy {
+  color: #59b1e4;
+}
+
+.bg-assy {
+  background-color: #59b1e4;
+}
+
+.marketing {
+  color: #e85742;
+}
+
+.bg-marketing {
+  background-color: #e85742;
+}
+
+.production {
+  color: #496ca0;
+}
+
+.bg-production {
+  background-color: #496ca0;
+}
+
+.bg-intern {
+  background-color: #e9e8e8;
+}
+
+.head-section {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 4%;
+}
+
+.content-section {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+
+.radius-xs {
+  border-radius: 8px;
+}
+
+.radius-sm {
+  border-radius: 14px;
+}
+
+.radius-md {
+  border-radius: 20px;
+}
+
+.radius-top-md {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.radius-top-left-md {
+  border-top-left-radius: 20px;
+}
+
+.radius-top-right-md {
+  border-top-right-radius: 20px;
+}
+
+.radius-bottom-md {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.radius-bottom-left-md {
+  border-bottom-left-radius: 20px;
+}
+
+.radius-bottom-right-md {
+  border-bottom-right-radius: 20px;
+}
+
+/* PADDING */
+.space {
+  padding: 3px;
+}
+
+.space-medium {
+  padding: 5px;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-xs {
+  padding: 1em;
+}
+
+.pl-xs {
+  padding-left: 1em;
+}
+
+.pr-xs {
+  padding-right: 1em;
+}
+
+.pt-xs {
+  padding-top: 1em;
+}
+
+.pb-xs {
+  padding-bottom: 1em;
+}
+
+.p-sm {
+  padding: 2em;
+}
+
+.pl-sm {
+  padding-left: 2em;
+}
+
+.pr-sm {
+  padding-right: 2em;
+}
+
+.pt-sm {
+  padding-top: 2em;
+}
+
+.pb-sm {
+  padding-bottom: 2em;
+}
+
+.p-md {
+  padding: 3em;
+}
+
+.pl-md {
+  padding-left: 3em;
+}
+
+.pr-md {
+  padding-right: 3em;
+}
+
+.pt-md {
+  padding-top: 3em;
+}
+
+.pb-md {
+  padding-bottom: 3em;
+}
+
+.p-lg {
+  padding: 4em;
+}
+
+.pl-lg {
+  padding-left: 4em;
+}
+
+.pr-lg {
+  padding-right: 4em;
+}
+
+.pt-lg {
+  padding-top: 4em;
+}
+
+.pb-lg {
+  padding-bottom: 4em;
+}
+
+.p-xl {
+  padding: 5em;
+}
+
+.pl-xl {
+  padding-left: 5em;
+}
+
+.pr-xl {
+  padding-right: 5em;
+}
+
+.pt-xl {
+  padding-top: 5em;
+}
+
+.pb-xl {
+  padding-bottom: 5em;
+}
+
+/* MARGIN */
+.m-0 {
+  margin: 0;
+}
+
+.m-xs {
+  margin: 1em;
+}
+
+.ml-xs {
+  margin-left: 1em;
+}
+
+.mr-xs {
+  margin-right: 1em;
+}
+
+.mt-xs {
+  margin-top: 1em;
+}
+
+.mb-xs {
+  margin-bottom: 1em;
+}
+
+.m-sm {
+  margin: 2em;
+}
+
+.ml-sm {
+  margin-left: 2em;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-sm {
+  margin-right: 2em;
+}
+
+.mt-sm {
+  margin-top: 2em;
+}
+
+.mb-sm {
+  margin-bottom: 2em;
+}
+
+.m-md {
+  margin: 3em;
+}
+
+.ml-md {
+  margin-left: 3em;
+}
+
+.mr-md {
+  margin-right: 3em;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mt-md {
+  margin-top: 3em;
+}
+
+.mb-md {
+  margin-bottom: 3em;
+}
+
+.m-lg {
+  margin: 4em;
+}
+
+.ml-lg {
+  margin-left: 4em;
+}
+
+.mr-lg {
+  margin-right: 4em;
+}
+
+.mt-lg {
+  margin-top: 4em;
+}
+
+.mb-lg {
+  margin-bottom: 4em;
+}
+
+.m-xl {
+  margin: 5em;
+}
+
+.ml-xl {
+  margin-left: 5em;
+}
+
+.mr-xl {
+  margin-right: 5em;
+}
+
+.mt-xl {
+  margin-top: 5em;
+}
+
+.mb-xl {
+  margin-bottom: 5em;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-flex-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-flex-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.float-left {
+  float: left;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.card-information {
+  max-height: 270px;
+  min-height: 270px;
+}
+
+.card-title {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #ffff;
+  height: 54px;
+  display: grid;
+  align-items: center;
+  padding: 8px;
+}
+
+.bg-announ {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+}
+
+.bg-time {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+}
+
+.team-mark {
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+}
+
+.leaf-number {
+  width: 35px;
+  height: 35px;
+}
+
+.count-section {
+  margin-top: -14px;
+}
+
+.card-container {
+  padding: 10px 25px 10px 25px;
+}
+
+/* ALLERT CSS  */
+.allert-overlay {
+  height: 100%;
+  width: 100%;
+  background: hsla(0, 0%, 0%, 25%);
+  position: fixed;
+  top: 0;
+  display: none;
+}
+.quest-allert {
+  top: 26%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 831px;
+  height: 391px;
+}
+
+.quest-allert-header {
+  height: 167px;
+  background-color: #9d28dd;
+}
+
+.quest-allert-body {
+  height: 224px;
+  background-color: #ffff;
+}
+
+/* BUTTON ALLERT */
+.change-time {
+  margin: 20px;
+  padding: 6px 35px 6px 35px;
+  background: #ffff;
+  border-radius: 30px;
+  border: 1px solid #9d28dd;
+  color: #9d28dd;
+  height: 40px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  background: transparent;
+  border: unset;
+}
+
+/* CUSTOM CSS SLICK CAROUSEL */
+.slick-track {
+  margin-left: 0px !important;
+}
+
+.prev {
+  background: url(../../image/icon/ic-arrow-prev.png) no-repeat;
+  width: 18px;
+  height: 18px;
+  border: unset;
+  position: absolute;
+  left: 7px;
+  top: 44px;
+}
+
+.next {
+  background: url(../../image/icon/ic-arrow-next.png) no-repeat;
+  width: 18px;
+  height: 18px;
+  border: unset;
+  position: absolute;
+  right: 3px;
+  top: 40px;
+}
