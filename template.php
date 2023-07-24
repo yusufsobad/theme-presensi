@@ -152,8 +152,8 @@ abstract class dashboard_template
 
     public static function card_birthday($data = [])
     {
-        $base_url = SITE . '://' . HOSTNAME . '/' . URL;
-        $base_url = $base_url .  "/theme/absensi/assets/image/background/";
+        $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
+        $base_url = $base_url .  "image/background/";
         ?>
         <div class="bg-<?= $data['color'] ?> radius-md p-sm card-information">
             <img width="50%" class="bg-announ" src="<?= $base_url ?>bg-speaker.png" alt="">

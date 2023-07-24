@@ -29,8 +29,8 @@ class dashboard_layout extends dashboard_template
 
     public static function header($data = [])
     {
-        $base_url = SITE . '://' . HOSTNAME . '/' . URL;
-        $base_url = $base_url .  "/theme/absensi/assets/image/";
+        $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
+        $base_url = $base_url .  "image/";
 
         $day = date('N');
         $day = self::indo_day($day);
@@ -92,8 +92,8 @@ class dashboard_layout extends dashboard_template
 
     public static function alert()
     {
-        $base_url = SITE . '://' . HOSTNAME . '/' . URL;
-        $base_url = $base_url .  "/theme/absensi/assets/image/";
+        $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
+        $base_url = $base_url .  "image/";
     ?>
         <div id="alert_global" class="allert-overlay">
             <div class="quest-allert absolute">
