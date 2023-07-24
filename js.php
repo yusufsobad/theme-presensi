@@ -45,6 +45,8 @@ class theme_js
         $js = array(
             'SASI-UI'           => $loc . 'sasi/js/sasi-ui.js',
             'sasi-carousel'     => $loc . 'sasi/js/sasi-carousel.js',
+            'footer-carousel'     => $loc . 'sasi/js/footer-carousel.js',
+            'sasi-timer'     => $loc . 'sasi/js/sasi-timer.js',
         );
 
         $check = array_filter($idx);
@@ -80,7 +82,7 @@ class theme_js
     {
         $loc = $this->lokasi();
         $js = array(
-            'jquery-3-5'        => $loc . 'vendor/jquery/jquery-3-5-0.min.js',
+            'jquery'        => $loc . 'vendor/jquery/jquery-3-5-0.min.js',
         );
 
         $check = array_filter($idx);

@@ -1,5 +1,4 @@
-$('body').on('click', function(e) {
-    $('.allert-overlay').toggle();
-    return false;
-});
-
+// $('body').on('click', function(e) {
+//     $('.allert-overlay').toggle();
+//     return false;
+// });

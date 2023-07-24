@@ -91,6 +91,9 @@ span {
 }
 
 /* COLOUR */
+.red {
+  color: red;
+}
 .light {
   color: #ffff;
 }
@@ -165,6 +168,21 @@ span {
   background-color: #201b3e;
 }
 
+.bg-warning {
+  background-color: #ffe2c4;
+  color: #ec7a00;
+}
+
+.bg-success {
+  background-color: #e7fbf2;
+  color: #15ba6b;
+}
+
+.bg-danger {
+  background-color: #ffc8c8;
+  color: #d51414;
+}
+
 /* PSYCOLOG COLOUR TEAM */
 
 .apd {
@@ -223,19 +241,19 @@ span {
   background-color: #9b543c;
 }
 
-.hr {
+.enginer {
   color: #fab05c;
 }
 
-.bg-hr {
+.bg-enginer {
   background-color: #fab05c;
 }
 
-.assy {
+.teknisi {
   color: #59b1e4;
 }
 
-.bg-assy {
+.bg-teknisi {
   background-color: #59b1e4;
 }
 
@@ -542,11 +560,28 @@ span {
 .w-100 {
   width: 100%;
 }
-
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-50 {
+  width: 50%;
+}
 .w-40 {
   width: 40%;
 }
 
+.w-30 {
+  width: 30%;
+}
 .w-20 {
   width: 20%;
 }
@@ -680,12 +715,27 @@ span {
   height: 40px;
 }
 
+.change-time:hover {
+  background: #9d28dd;
+  color: #ffff;
+}
+
 .btn-close {
   position: absolute;
   top: 19px;
   right: 19px;
   background: transparent;
   border: unset;
+}
+
+.scan_alert {
+  width: 25%;
+  right: 28px;
+  position: absolute;
+  top: 25px;
+}
+.permit_content {
+  height: 56px;
 }
 
 /* CUSTOM CSS SLICK CAROUSEL */
@@ -711,4 +761,27 @@ span {
   position: absolute;
   right: 3px;
   top: 40px;
+}
+
+/* BUTTON GLOBAL ALERT */
+#permit {
+  display: none;
+}
+#out_city {
+  display: none;
+}
+#sick_permit {
+  display: none;
+}
+#change_time {
+  display: none;
+}
+#home_permit {
+  display: none;
+}
+#cuti {
+  display: none;
+}
+#permit_change_time {
+  display: none;
 }

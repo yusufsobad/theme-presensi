@@ -11,17 +11,17 @@ abstract class dashboard_template
 ?>
         <div class="">
             <div class="row mt-xs footer-section">
-                <div class="col-xs-12 bg-dark-blue radius-md pl-md pr-md pt-xs">
-                    <div class="row carousel-footer">
-                        <?php 
-                            foreach ($data['data'] as $value) : 
-                                $img = isset($value['url_img']) ? $value['url_img'] : 'https://cdn.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.webp';
-                                $title = isset($value['title']) ? $value['title'] : '-';
-                            ?>
+                <div class="col-xs-12 bg-dark-blue radius-md" style="height: 100px;">
+                    <div class="row carousel-footer" style="padding: 19px;">
+                        <?php
+                        foreach ($data as $value) :
+                            $img = isset($value['url_img']) ? $value['url_img'] : 'https://cdn.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.webp';
+                            $title = isset($value['title']) ? $value['title'] : '-';
+                        ?>
 
-                            <div class="col-xs-2 space">
+                            <div id="carousel_not_work" class="col-xs-2 space">
                                 <div class="bg-deep-grey radius-xs text-center">
-                                    <img class="radius-xs" width="100%" src="<?= $img ?>" alt="">
+                                    <img class="radius-xs" width="48px" height="48px" src="<?= $img ?>" alt="">
                                 </div>
                                 <div class="space text-center">
                                     <span class="light"><?= $title ?></span>
@@ -37,14 +37,16 @@ abstract class dashboard_template
     <?php
     }
 
-    public static function card_container($data = [])
+    public static function card_company($data = [])
     {
         $color = isset($data['color']) ? $data['color'] : 'light';
         $title = isset($data['title']) ? $data['title'] : '';
         $logo = isset($data['logo']) ? $data['logo'] : '';
         $count = isset($data['count']) ? $data['count'] : 0;
+        $size_logo = isset($data['size_logo']) ? $data['size_logo'] : '50%';
+        $id = isset($data['id']) ? $data['id'] : '';
     ?>
-        <div class="row mt-xs">
+        <div id="<?= $id ?>" class="row mt-xs">
             <div class="flex justify-between align-flex-end">
                 <div class="col-xs-7 p-0">
                     <div class="row flex align-center">
@@ -54,7 +56,7 @@ abstract class dashboard_template
                             </div>
                         </div>
                         <div class="col-xs-6 p-0">
-                            <img width="50%" src="<?= $logo ?>" alt="">
+                            <img width="<?= $size_logo ?>" src="<?= $logo ?>" alt="">
                         </div>
                     </div>
                 </div>
@@ -64,61 +66,71 @@ abstract class dashboard_template
                     </div>
                 </div>
             </div>
-            <div class="card-container bg-<?= $color ?> radius-bottom-md">
-                <?php
-                $func = isset($data['func']) ? $data['func'] : '';
-                if (method_exists('dashboard_template', $func)) {
-                    self::{$func}($data['data']);
-                } else {
-                    echo 'Function ' . $func . ' Not Exist !!!';
-                }
-                ?>
-            </div>
-        </div>
-    <?php
-    }
-
-    public static function card_division($data = [])
-    {
-        $color = isset($data['color']) ? $data['color'] : 'light';
-        $title = isset($data['title']) ? $data['title'] : '';
-        $color_division = isset($data['color_division']) ? $data['color_division'] : 'deep_grey';
-        $ammount_ready = isset($data['ammount_ready']) ? $data['ammount_ready'] : 0;
-        $ammount_employe = isset($data['ammount_employe']) ? $data['ammount_employe'] : 0;
-        $carousel =  isset($data['carousel']) ? $data['carousel'] : '';
-    ?>
-        <div class="bg-<?= $color ?> radius-md p-xs">
-            <div class="row">
-                <div class="col-xs-8 flex align-center">
-                    <div class="team-mark bg-<?= $color_division ?> mr-xs"></div>
-                    <p><?= $title ?></p>
+            <div class="card-container bg-light radius-bottom-md">
+                <div class="row">
+                    <?php
+                    $func = isset($data['func']) ? $data['func'] : '';
+                    if (method_exists('dashboard_template', $func)) {
+                        self::{$func}($data['data']);
+                    } else {
+                        echo 'Function ' . $func . ' Not Exist !!!';
+                    }
+                    ?>
                 </div>
-                <div class="col-xs-4 p-0">
-                    <div class="flex count-section justify-flex-end">
-                        <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-deep-grey grid align-center text-center grey" style="margin-right: -12px; margin-left: -7px;">
-                            <p><?= $ammount_ready ?></p>
-                        </div>
-                        <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-<?= $color_division ?> grid align-center text-center light">
-                            <p><?= $ammount_employe ?></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row m-0 pt-xs <?= $carousel ?>">
-                <?php foreach ($data['data'] as $val) { ?>
-                    <div class="col-xs-4 space">
-                        <div class="bg-deep-grey radius-xs text-center">
-                            <img class="radius-xs" width="100%" src="<?= $val['url_img'] ?>" alt="">
-                        </div>
-                        <div class="space text-center">
-                            <span class="black"><?= $val['employe_name'] ?></span>
-                            <div class="text-small black"><?= $val['enter_time'] ?></div>
-                        </div>
-                    </div>
-                <?php } ?>
             </div>
         </div>
         <?php
+    }
+
+    public static function card_divisi($data = [])
+    {
+        foreach ($data as $key => $val) {
+            $title = isset($val['title']) ? $val['title'] : '';
+            $width = isset($val['width']) ? $val['width'] : '20';
+            $qty = isset($val['qty']) && $val['qty'] !== '' ? $val['qty'] : 0;
+            $color = isset($val['color']) ? $val['color'] : 'grey';
+            $id = isset($val['id']) ? $val['id'] : '';
+            $class = isset($val['class']) ? $val['class'] : '';
+        ?>
+            <div class="col-xs-2 w-<?= $width ?> space">
+                <div class="bg-light-grey radius-md p-xs" style="height:154px;">
+                    <div class="row">
+                        <div class="col-xs-8 flex align-center">
+                            <div class="team-mark bg-<?= $color ?> mr-xs"></div>
+                            <p><?= $title ?></p>
+                        </div>
+                        <div class="col-xs-4 p-0">
+                            <div class="flex count-section justify-flex-end">
+                                <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-deep-grey grid align-center text-center grey" style="margin-right: -12px; margin-left: -7px;">
+                                    <p>4</p>
+                                </div>
+                                <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-<?= $color ?> grid align-center text-center light">
+                                    <p><?= $qty ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="<?= $id ?>" class="row m-0 pt-xs <?= $width ?>-carousel <?= $class ?>">
+                        <?php foreach ($val['content'] as $vals) {
+                            $image = isset($vals['image']) ? $vals['image'] : '';
+                            $title = isset($vals['title']) ? $vals['title'] : '';
+                            $time_in = isset($vals['time_in']) ? $vals['time_in'] : '00.00';
+                        ?>
+                            <div class="col-xs-4 space">
+                                <div class="bg-deep-grey radius-xs text-center">
+                                    <img class="radius-xs" width="48px" height="48px" src="<?= $image ?>" alt="">
+                                </div>
+                                <div class="space text-center">
+                                    <span class="black"><?= $title ?></span>
+                                    <div class="text-small black"><?= $time_in ?></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
     }
 
 
@@ -140,12 +152,14 @@ abstract class dashboard_template
 
     public static function card_birthday($data = [])
     {
+        $base_url = SITE . '://' . HOSTNAME . '/' . URL;
+        $base_url = $base_url .  "/theme/absensi/assets/image/background/";
         ?>
         <div class="bg-<?= $data['color'] ?> radius-md p-sm card-information">
-            <img width="50%" class="bg-announ" src="assets/image/background/bg-speaker.png" alt="">
+            <img width="50%" class="bg-announ" src="<?= $base_url ?>bg-speaker.png" alt="">
             <h5 class="light-grey">Announcement</h5>
             <br>
-            <h6 class="light-grey">Birthday This Mount</h6>
+            <h6 class="light-grey">Birthday This Month</h6>
             <div class="row pl-xs mt-xs">
                 <?php
                 $func = isset($data['func']) ? $data['func'] : '';
