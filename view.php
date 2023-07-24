@@ -169,11 +169,11 @@ class dashboard_layout extends dashboard_template
         <script>
             var data = <?= $data ?>;
             var notwork_data = data;
-            var work_data = [];
-            var outcity_data = [];
-            var permit_data = [];
-            var cuti_data = [];
-            var sick_data = [];
+            var work_data = {};
+            var outcity_data = {};
+            var permit_data = {};
+            var cuti_data = {};
+            var sick_data = {};
         </script>
     <?php
     }
@@ -191,6 +191,7 @@ class dashboard_layout extends dashboard_template
                 permit_content();
                 cuti_content();
                 sick_content();
+                // dom_count_team();
             }
 
             function notwork_content() {
@@ -313,6 +314,43 @@ class dashboard_layout extends dashboard_template
 
             function close_alert() {
                 $('#alert_global').fadeOut();
+            }
+
+            function count_team_work(group) {
+                var team_work = {}
+                $.each(work_data, function(key, val) {
+                    if (val.group == group) {
+                        team_work[key] = val;
+                    }
+                });
+
+                var count_work = Object.keys(team_work);
+                return count_work.length;
+            }
+
+            function dom_count_team() {
+                $.each(work_data, function(key, val) {
+                    ammount_working = count_team_work(val.group);
+                    $('#' + val.group + '-mount-work').html(ammount_working)
+                });
+            }
+
+            function dom_ammount_work() {
+                var count = Object.keys(work_data);
+                var ammount = count.length;
+                $('#ammount-work').html(ammount)
+            }
+
+            function dom_ammount_outcity() {
+                var count = Object.keys(outcity_data);
+                var ammount = count.length;
+                $('#ammount-outcity').html(ammount)
+            }
+
+            function dom_ammount_permit() {
+                var count = Object.keys(permit_data);
+                var ammount = count.length;
+                $('#ammount-permit').html(ammount)
             }
 
             load_content();
