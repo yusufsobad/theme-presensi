@@ -12,7 +12,7 @@ abstract class dashboard_template
         <div class="">
             <div class="row mt-xs footer-section">
                 <div class="col-xs-12 bg-dark-blue radius-md" style="height: 100px;">
-                    <div class="row carousel-footer" style="padding: 19px;">
+                    <div id="group_not_work" class="row carousel-footer" style="padding: 19px;">
                         <?php
                         foreach ($data as $value) :
                             $img = isset($value['url_img']) ? $value['url_img'] : 'https://cdn.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.webp';

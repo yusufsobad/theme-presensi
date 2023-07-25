@@ -321,6 +321,8 @@ class dashboard_layout extends dashboard_template
                 $.each(work_data, function(key, val) {
                     if (val.group == group) {
                         team_work[key] = val;
+                    } else {
+                        team_work = [];
                     }
                 });
 
@@ -352,6 +354,7 @@ class dashboard_layout extends dashboard_template
                 var ammount = count.length;
                 $('#ammount-permit').html(ammount)
             }
+
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
             function destroyCarousel(clas) {
                 if ($('.' + clas + '-carousel').hasClass('slick-initialized')) {
