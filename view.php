@@ -352,7 +352,96 @@ class dashboard_layout extends dashboard_template
                 var ammount = count.length;
                 $('#ammount-permit').html(ammount)
             }
-
+            // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
+            function destroyCarousel(clas) {
+                if ($('.' + clas + '-carousel').hasClass('slick-initialized')) {
+                    $('.' + clas + '-carousel').slick('destroy');
+                    switch (clas) {
+                        case '20':
+                            $(".20-carousel").slick({
+                                slidesToShow: 3,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '30':
+                            $(".30-carousel").slick({
+                                slidesToShow: 5,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '40':
+                            $(".40-carousel").slick({
+                                slidesToShow: 7,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '50':
+                            $(".50-carousel").slick({
+                                slidesToShow: 8,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '60':
+                            $(".60-carousel").slick({
+                                slidesToShow: 10,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '70':
+                            $(".70-carousel").slick({
+                                slidesToShow: 12,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '80':
+                            $(".80-carousel").slick({
+                                slidesToShow: 14,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                        case '90':
+                            $(".90-carousel").slick({
+                                slidesToShow: 15,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '100':
+                            $(".100-carousel").slick({
+                                slidesToShow: 17,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        default:
+                            // code block
+                    }
+                }
+            }
             load_content();
         </script>
     <?php
@@ -363,8 +452,6 @@ class dashboard_layout extends dashboard_template
         $loc = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
     ?>
         <script src="<?= $loc . 'vendor/jquery/jquery-3-5-0.min.js' ?>"></script>
-        <script src="<?= $loc . 'sasi/js/sasi-carousel.js' ?>"></script>
-        <!-- <script src="<?= $loc . 'plugin/slick-carousel/slick/slick.min.js' ?>"></script> -->
 <?php
     }
 
