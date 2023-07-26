@@ -65,6 +65,7 @@ class theme_js
         $loc = $this->lokasi();
         $js = array(
             'slick-carousel'        => $loc . 'plugin/slick-carousel/slick/slick.min.js',
+            // 'owl-carousel'        => $loc . 'plugin/owl-carousel/js/owl.carousel.min.js',
         );
 
         $check = array_filter($idx);

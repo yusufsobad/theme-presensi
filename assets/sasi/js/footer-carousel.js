@@ -1,4 +1,4 @@
-$(".carousel-footer").slick({
+$(".footer-carousel").slick({
   slidesToShow: 17,
   slidesToScroll: 1,
   autoplay: true,

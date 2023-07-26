@@ -197,16 +197,22 @@ class dashboard_layout extends dashboard_template
             function notwork_content() {
                 var html = '';
                 $.each(notwork_data, function(key, val) {
-                    html += '<div id="' + key + '-notwork" class="col-xs-2 space">'
-                    html += ' <div class="bg-deep-grey radius-xs text-center">'
-                    html += '<img class="radius-xs" width="48px" height="48px" src="' + url + val.image + '" alt="">'
-                    html += '</div>'
-                    html += '<div class="space text-center">'
-                    html += ' <span class="light">' + val.name + '</span>'
-                    html += '</div>'
-                    html += '</div>'
+                    $(".footer-carousel").append(notwork_html(key, val));
                 });
-                $(".carousel-footer").append(html);
+            }
+
+            function notwork_html(key, val) {
+                var html = '';
+                html += '<div id="' + key + '-notwork" class="col-xs-2 space">'
+                html += ' <div class="bg-deep-grey radius-xs text-center">'
+                html += '<img class="radius-xs" width="48px" height="48px" src="' + url + val.image + '" alt="">'
+                html += '</div>'
+                html += '<div class="space text-center">'
+                html += ' <span class="light">' + val.name + '</span>'
+                html += '</div>'
+                html += '</div>'
+
+                return html;
             }
 
             function work_content() {
@@ -440,11 +446,111 @@ class dashboard_layout extends dashboard_template
                                 arrows: false,
                             });
                             break;
+                        case 'permit':
+                            $(".permit-carousel").slick({
+                                slidesToShow: 5,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case 'footer':
+                            $(".footer-carousel").slick({
+                                slidesToShow: 17,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                prevArrow: $(".next"),
+                                nextArrow: $(".prev"),
+                            });
+                            break;
+                        case 'permit-split':
+                            $(".permit-split-carousel").slick({
+                                slidesToShow: 2,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
                         default:
                             // code block
                     }
+
                 }
             }
+
+            // ALERT KETIKA DOUBLE SCAN
+            function alert_already_scan(data) {
+                var mesage = "Anda Sudah Scan Masuk !!!"
+                $('#warning_scan').html(mesage);
+                $('#warning_scan').fadeIn();
+                setTimeout(function() {
+                    $("#warning_scan").fadeOut();
+                }, 2000);
+            }
+
+            // ALLERT KETIKA SUKSES SCAN
+            function alert_success_scan(data) {
+                var mesage = "Anda Berhasil Scan Masuk"
+
+                $('#success_scan').html(mesage);
+                $('#success_scan').fadeIn();
+                setTimeout(function() {
+                    $("#success_scan").fadeOut();
+                }, 2000);
+            }
+
+            // ALLERT KETIKA SUKSES SCAN
+            function alert_success_scan_home(data) {
+                var mesage = "Anda Berhasil Scan Pulang"
+
+                $('#success_scan').html(mesage);
+                $('#success_scan').fadeIn();
+                setTimeout(function() {
+                    $("#success_scan").fadeOut();
+                }, 2000);
+            }
+
+            // ALLERT GLOBAL
+            function alert_scan(nik, data) {
+                var allert_title = "Mau Kemana?"
+                var allert_sub_title = "Tekan pilihan tombol di bawah"
+                var url_img_employe = url + data.image
+                $('#alert_global').fadeIn();
+                $('#alert_data').val(nik);
+                $('#alert_img_employ').attr('src', url_img_employe);
+                $('#alert_name_employe').html(data.name);
+                $('#alert_divisi_employe').html(data.divisi);
+                $('#alert_title').html(allert_title);
+                $('#allert_sub_title').html(allert_sub_title);
+                $('#out_city').show();
+                $('#permit').show();
+                $('#home_permit').show();
+            }
+
+            // ALLERT GLOBAL SECONDARY
+            function second_alert_scan(nik, data) {
+                var allert_title = "Mau Kemana?"
+                var allert_sub_title = "Tekan pilihan tombol di bawah"
+                var url_img_employe = url + data.image
+                $('#alert_global').fadeIn();
+                $('#alert_data').val(nik);
+                $('#alert_img_employ').attr('src', url_img_employe);
+                $('#alert_name_employe').html(data.name);
+                $('#alert_divisi_employe').html(data.divisi);
+                $('#alert_title').html(allert_title);
+                $('#allert_sub_title').html(allert_sub_title);
+                $('#sick_permit').show();
+                $('#permit_change_time').show();
+                $('#cuti').show();
+
+                $('#out_city').hide();
+                $('#permit').hide();
+                $('#home_permit').hide();
+            }
+
             load_content();
         </script>
     <?php
