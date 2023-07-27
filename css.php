@@ -62,8 +62,7 @@ class theme_css
 		$loc = $this->lokasi();
 		$css = array(
 			'font-awesome-4'		=> $loc . 'plugin/font-awesome-4/font-awesome.min.css',
-			'slick-carousel'		=> $loc . 'plugin/slick-carousel/slick/slick.css',
-			// 'owl-carousel'			=> $loc . 'plugin/owl-carousel/css/owl.carousel.min.css',
+			'slick-carousel'		=> $loc . 'plugin/slick-carousel/slick/slick.min.css',
 		);
 
 		$check = array_filter($idx);

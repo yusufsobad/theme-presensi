@@ -361,6 +361,18 @@ class dashboard_layout extends dashboard_template
                 $('#ammount-permit').html(ammount)
             }
 
+            function dom_ammount_sickpermit() {
+                var count = Object.keys(sick_data);
+                var ammount = count.length;
+                $('#ammount-sick').html(ammount)
+            }
+
+            function dom_ammount_cuti() {
+                var count = Object.keys(cuti_data);
+                var ammount = count.length;
+                $('#ammount-cuti').html(ammount)
+            }
+
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
             function destroyCarousel(clas) {
                 if ($('.' + clas + '-carousel').hasClass('slick-initialized')) {
@@ -528,6 +540,10 @@ class dashboard_layout extends dashboard_template
                 $('#out_city').show();
                 $('#permit').show();
                 $('#home_permit').show();
+
+                $('#sick_permit').hide();
+                $('#permit_change_time').hide();
+                $('#cuti').hide();
             }
 
             // ALLERT GLOBAL SECONDARY

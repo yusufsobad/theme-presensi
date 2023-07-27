@@ -43,10 +43,10 @@ class theme_js
     {
         $loc = $this->lokasi();
         $js = array(
-            'SASI-UI'           => $loc . 'sasi/js/sasi-ui.js',
-            'sasi-carousel'     => $loc . 'sasi/js/sasi-carousel.js',
-            'footer-carousel'     => $loc . 'sasi/js/footer-carousel.js',
-            'sasi-timer'     => $loc . 'sasi/js/sasi-timer.js',
+            'SASI-UI'               => $loc . 'sasi/js/sasi-ui.js',
+            'sasi-carousel'         => $loc . 'sasi/js/sasi-carousel.js',
+            'footer-carousel'       => $loc . 'sasi/js/footer-carousel.js',
+            'sasi-timer'            => $loc . 'sasi/js/sasi-timer.js',
         );
 
         $check = array_filter($idx);
@@ -64,8 +64,7 @@ class theme_js
     {
         $loc = $this->lokasi();
         $js = array(
-            'slick-carousel'        => $loc . 'plugin/slick-carousel/slick/slick.min.js',
-            // 'owl-carousel'        => $loc . 'plugin/owl-carousel/js/owl.carousel.min.js',
+            'slick-carousel'     => $loc . 'plugin/slick-carousel/slick/slick.min.js',
         );
 
         $check = array_filter($idx);
