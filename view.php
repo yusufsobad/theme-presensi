@@ -203,7 +203,7 @@ class dashboard_layout extends dashboard_template
 
             function notwork_html(key, val) {
                 var html = '';
-                html += '<div id="' + key + '-notwork" class="col-xs-2 space">'
+                html += '<div id="' + key + '-notwork" class="' + key + '-notwork col-xs-2 space">'
                 html += ' <div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="48px" height="48px" src="' + url + val.image + '" alt="">'
                 html += '</div>'
@@ -230,7 +230,7 @@ class dashboard_layout extends dashboard_template
                     var time_html = '<div class="text-small black">' + data.time + '</div>'
                 }
                 var html = '';
-                html += '<div id="' + key + '-work" class="col-xs-4 space">'
+                html += '<div id="' + key + '-work" class="' + key + '-work col-xs-4 space">'
                 html += ' <div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="48px" height="48px" src="' + url + data.image + '" alt="">'
                 html += '</div>'
@@ -250,7 +250,7 @@ class dashboard_layout extends dashboard_template
 
             function permit_html(key, data) {
                 var html = '';
-                html += '<div id="' + key + '-permit" class="col-xs-6 w-20 space">'
+                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="85%"src="' + url + data.image + '">'
                 html += ' </div>'
@@ -269,7 +269,7 @@ class dashboard_layout extends dashboard_template
 
             function cuti_html(key, data) {
                 var html = '';
-                html += '<div id="' + key + '-permit" class="col-xs-6 w-20 space">'
+                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="85%" src="' + url + data.image + '">'
                 html += ' </div>'
@@ -288,7 +288,7 @@ class dashboard_layout extends dashboard_template
 
             function outcity_html(key, data) {
                 var html = '';
-                html += '<div id="' + key + '-permit" class="col-xs-6 w-20 space">'
+                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="90%"src="' + url + data.image + '">'
                 html += ' </div>'
@@ -307,7 +307,7 @@ class dashboard_layout extends dashboard_template
 
             function sick_html(key, data) {
                 var html = '';
-                html += '<div id="' + key + '-permit" class="col-xs-6  space">'
+                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6  space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="90%" src="' + url + data.image + '">'
                 html += ' </div>'
@@ -374,9 +374,9 @@ class dashboard_layout extends dashboard_template
             }
 
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
-            function destroyCarousel(clas) {
+            function reinit_carousel(clas) {
                 if ($('.' + clas + '-carousel').hasClass('slick-initialized')) {
-                    $('.' + clas + '-carousel').slick('destroy');
+                    $('.' + clas + '-carousel').slick('unslick');
                     switch (clas) {
                         case '20':
                             $(".20-carousel").slick({
