@@ -21,7 +21,6 @@ class dashboard_layout extends dashboard_template
         <?php self::data_json($data['args']); ?>
         <?php self::alert(); ?>
         <?php self::_content(); ?>
-
         <?php self::custom_script($data) ?>
 
     <?php
@@ -192,25 +191,37 @@ class dashboard_layout extends dashboard_template
 
     public static function data_json($data)
     {
-        $data = json_encode($data);
+        $notwork_data = json_encode($data['notwork_data']);
+        $work_data = json_encode($data['work_data']);
+        $outcity_data = json_encode($data['outcity_data']);
+        $permit_data = json_encode($data['permit_data']);
+        $cuti_data = json_encode($data['cuti_data']);
+        $sick_data = json_encode($data['sick_data']);
+        $birthday_data = json_encode($data['birthday_data']);
+        $announcement_data = json_encode($data['announcement_data'])
+
     ?>
         <script>
-            var data = <?= $data ?>;
-            var notwork_data = data;
-            var work_data = {};
-            var outcity_data = {};
-            var permit_data = {};
-            var cuti_data = {};
-            var sick_data = {};
+            var notwork_data = <?= $notwork_data ?>;
+            var work_data = <?= $work_data ?>;
+            var outcity_data = <?= $outcity_data ?>;
+            var permit_data = <?= $permit_data ?>;
+            var cuti_data = <?= $cuti_data ?>;
+            var sick_data = <?= $sick_data ?>;
+            var birthday_data = <?= $birthday_data ?>;
+            var announcement_data = <?= $announcement_data ?>;
         </script>
     <?php
     }
 
     public static function _content()
     {
+        $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
     ?>
         <script>
             var url = "https://s.soloabadi.com/system-absen/asset/img/user/";
+
+            var base_url = "<?= $base_url ?>"
 
             function load_content() {
                 notwork_content();
@@ -220,6 +231,8 @@ class dashboard_layout extends dashboard_template
                 cuti_content();
                 sick_content();
                 dom_count_team();
+                birthday_content();
+                announcement_content();
             }
 
             function notwork_content() {
@@ -344,6 +357,50 @@ class dashboard_layout extends dashboard_template
                 html += ' </div>'
                 html += ' </div>'
                 return html;
+            }
+
+            function birthday_content() {
+                $('#announcement-title').html('Birthday This Month');
+                $.each(birthday_data, function(key, val) {
+                    $("#announcement").append(birthday_html(key, val));
+                });
+            }
+
+            function birthday_html(key, data) {
+                var html = '';
+                html += '<div class="col-xs-3 space birthday">'
+                html += '<div class="bg-deep-grey radius-xs text-center">'
+                html += '<img class="radius-xs" width="100%" src="' + url + data.image + '">'
+                html += '</div>'
+                html += '<div class="space text-center">'
+                html += '<span class="light">' + data.name + '</span>'
+                html += '</div>'
+                return html
+            }
+
+            function announcement_content() {
+                var data = announcement_data;
+                $("#announcement").append(announcement_html(data));
+            }
+
+            function announcement_html(data) {
+                var html = '';
+                html += '<div id="announ-info" class="col-xs-12">'
+                html += '<div class="flex align-center">'
+                html += '<img width="22px" src="' + base_url + 'image/icon/ic-date-star.png" alt="">'
+                html += '<h6 class="p-xs light">' + data.date + '</h6>'
+                html += '</div>'
+                html += '<div class="flex align-center">'
+                html += '<img width="22px" src="' + base_url + 'image/icon/ic-circle-time.png" alt="">'
+                html += '<h6 class="p-xs light">' + data.start + ' - ' + data.end + '</h6>'
+                html += '</div>'
+                html += '<div class="flex align-center">'
+                html += '<img width="22px" src="' + base_url + 'image/icon/ic-location.png" alt="">'
+                html += '<h6 class="p-xs light">' + data.location + '</h6>'
+                html += '</div>'
+                html += '<h6 class="light" style="font-size: 16px; margin-top:10px">' + data.title + '</h6>'
+                html += '</div>'
+                return html
             }
 
             function close_alert() {

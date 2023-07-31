@@ -796,3 +796,7 @@ span {
 #permit_change_time {
   display: none;
 }
+
+#announ-info {
+  display: none;
+}

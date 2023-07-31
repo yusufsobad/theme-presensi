@@ -152,22 +152,13 @@ abstract class dashboard_template
     public static function card_birthday($data = [])
     {
         $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
-        $base_url = $base_url .  "image/background/";
         ?>
         <div class="bg-<?= $data['color'] ?> radius-md p-sm card-information">
-            <img width="50%" class="bg-announ" src="<?= $base_url ?>bg-speaker.png" alt="">
+            <img width="50%" class="bg-announ" src="<?= $base_url ?>image/background/bg-speaker.png" alt="">
             <h5 class="light-grey">Announcement</h5>
-            <br>
-            <h6 class="light-grey">Birthday This Month</h6>
-            <div class="row pl-xs mt-xs">
-                <?php
-                $func = isset($data['func']) ? $data['func'] : '';
-                if (method_exists('dashboard_template', $func)) {
-                    self::{$func}($data['data']);
-                } else {
-                    echo 'Function ' . $func . ' Not Exist !!!';
-                }
-                ?>
+            <h6 id="announcement-title" class="light-grey pt-xs"></h6>
+            <div id="announcement" class="row pl-xs mt-xs">
+
             </div>
         </div>
     <?php
