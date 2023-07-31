@@ -115,33 +115,61 @@ class dashboard_layout extends dashboard_template
                         <h2 id="alert_title" class="bold"></h2>
                         <h6 id="alert_sub_title" class="semi-bold space dark-grey"></h6>
                         <div id="alert_button" class="flex align-center justify-center">
-                            <button onclick="go_out_city(this)" id="out_city" class="change-time"><img width="23px" src="<?= $base_url ?>icon/ic-plane.png" alt="">
-                                Luar Kota</button>
+                            <button onclick="go_out_city(this)" id="out_city" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="23px" src="<?= $base_url ?>icon/ic-plane.png" alt="">
+                                    <p class="space">Luar Kota</p>
+                                </div>
+                            </button>
 
-                            <button onclick="change_time(this)" id="change_time" class="change-time"><img width="23px" src="<?= $base_url ?>icon/ic-time.png" alt=""> Ya,
-                                Ganti
-                                Jam</button>
+                            <button onclick="change_time(this)" id="change_time" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="23px" src="<?= $base_url ?>icon/ic-time.png" alt=""> Ya,
+                                    <p class="space">Ganti Jam</p>
+                                </div>
+                            </button>
 
-                            <button onclick="permit(this)" id="permit" class="change-time"><img width="17px" src="<?= $base_url ?>icon/ic-permit.png" alt="">
-                                Izin</button>
+                            <button onclick="permit(this)" id="permit" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="13px" src="<?= $base_url ?>icon/ic-permit.png" alt="">
+                                    <p class="space">Izin</p>
+                                </div>
+                            </button>
 
-                            <button onclick="sick_permit(this)" id="sick_permit" class="change-time"><img width="23px" src="<?= $base_url ?>icon/ic-sick.png" alt="">
-                                Sakit</button>
 
-                            <button onclick="home_permit(this)" id="home_permit" class="change-time"><img width="20px" src="<?= $base_url ?>icon/ic-home.png" alt="">
-                                Pulang</button>
+                            <button onclick="sick_permit(this)" id="sick_permit" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-sick.png" alt="">
+                                    <p class="space">Sakit</p>
+                                </div>
+                            </button>
 
-                            <button onclick="permit_change_time(this)" id="permit_change_time" class="change-time"><img width="23px" src="<?= $base_url ?>icon/ic-change-time.png" alt="">
-                                Ganti Jam</button>
+                            <button onclick="home_permit(this)" id="home_permit" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="13px" src="<?= $base_url ?>icon/ic-home.png" alt="">
+                                    <p class="space">Pulang</p>
+                                </div>
+                            </button>
 
-                            <button onclick="cuti(this)" id="cuti" class="change-time"><img width="23px" src="<?= $base_url ?>icon/ic-cuti.png" alt="">
-                                Cuti</button>
+                            <button onclick="permit_change_time(this)" id="permit_change_time" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="20px" src="<?= $base_url ?>icon/ic-change-time.png" alt="">
+                                    <p class="space">Ganti Jam</p>
+                                </div>
+                            </button>
 
-                            <input type="hidden" id="alert_data" value="">
+                            <button onclick="cuti(this)" id="cuti" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="16px" src="<?= $base_url ?>icon/ic-cuti.png" alt="">
+                                    <p class="space">Cuti</p>
+                                </div>
+                            </button>
                         </div>
+                        <input type="hidden" id="alert_data" value="">
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <div class="scan_alert">
@@ -191,7 +219,7 @@ class dashboard_layout extends dashboard_template
                 permit_content();
                 cuti_content();
                 sick_content();
-                // dom_count_team();
+                dom_count_team();
             }
 
             function notwork_content() {
@@ -331,16 +359,20 @@ class dashboard_layout extends dashboard_template
                         team_work = [];
                     }
                 });
-
                 var count_work = Object.keys(team_work);
                 return count_work.length;
             }
 
-            function dom_count_team() {
-                $.each(work_data, function(key, val) {
-                    ammount_working = count_team_work(val.group);
-                    $('#' + val.group + '-mount-work').html(ammount_working)
-                });
+            function dom_count_team(group) {
+                var work = Object.keys(work_data);
+                if (work.length > 0) {
+                    $.each(work_data, function(key, val) {
+                        ammount_working = count_team_work(val.group);
+                        $('#' + val.group + '-mount-work').html(ammount_working);
+                    });
+                } else {
+                    $('#' + group + '-mount-work').html('0');
+                }
             }
 
             function dom_ammount_work() {
@@ -489,7 +521,6 @@ class dashboard_layout extends dashboard_template
                         default:
                             // code block
                     }
-
                 }
             }
 
@@ -506,7 +537,6 @@ class dashboard_layout extends dashboard_template
             // ALLERT KETIKA SUKSES SCAN
             function alert_success_scan(data) {
                 var mesage = "Anda Berhasil Scan Masuk"
-
                 $('#success_scan').html(mesage);
                 $('#success_scan').fadeIn();
                 setTimeout(function() {
@@ -517,7 +547,6 @@ class dashboard_layout extends dashboard_template
             // ALLERT KETIKA SUKSES SCAN
             function alert_success_scan_home(data) {
                 var mesage = "Anda Berhasil Scan Pulang"
-
                 $('#success_scan').html(mesage);
                 $('#success_scan').fadeIn();
                 setTimeout(function() {
@@ -540,7 +569,6 @@ class dashboard_layout extends dashboard_template
                 $('#out_city').show();
                 $('#permit').show();
                 $('#home_permit').show();
-
                 $('#sick_permit').hide();
                 $('#permit_change_time').hide();
                 $('#cuti').hide();
@@ -561,7 +589,6 @@ class dashboard_layout extends dashboard_template
                 $('#sick_permit').show();
                 $('#permit_change_time').show();
                 $('#cuti').show();
-
                 $('#out_city').hide();
                 $('#permit').hide();
                 $('#home_permit').hide();

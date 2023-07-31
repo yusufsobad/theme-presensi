@@ -663,9 +663,16 @@ span {
   border-radius: 5px;
 }
 
-.leaf-number {
+.leaf-number-right {
   width: 35px;
   height: 35px;
+}
+
+.leaf-number-left {
+  width: 41px;
+  height: 35px;
+  text-align: center;
+  padding-right: 10px;
 }
 
 .count-section {
@@ -718,6 +725,10 @@ span {
 .change-time:hover {
   background: #9d28dd;
   color: #ffff;
+}
+
+.change-time:hover .icon-btn-alert {
+  filter: brightness(0) invert(1);
 }
 
 .btn-close {

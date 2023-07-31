@@ -100,10 +100,10 @@ abstract class dashboard_template
                         </div>
                         <div class="col-xs-4 p-0">
                             <div class="flex count-section justify-flex-end">
-                                <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-deep-grey grid align-center text-center grey" style="margin-right: -12px; margin-left: -7px;">
+                                <div class="leaf-number-left radius-bottom-left-md radius-top-right-md bg-deep-grey grid align-center text-center grey" style="margin-right: -15px; margin-left: -7px;">
                                     <p id="<?= $id ?>-mount-work">0</p>
                                 </div>
-                                <div class="leaf-number radius-bottom-left-md radius-top-right-md bg-<?= $color ?> grid align-center text-center light">
+                                <div class="leaf-number-right radius-bottom-left-md radius-top-right-md bg-<?= $color ?> grid align-center text-center light">
                                     <p><?= $qty ?></p>
                                 </div>
                             </div>
