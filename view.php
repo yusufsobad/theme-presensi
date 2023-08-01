@@ -191,15 +191,14 @@ class dashboard_layout extends dashboard_template
 
     public static function data_json($data)
     {
-        $notwork_data = json_encode($data['notwork_data']);
-        $work_data = json_encode($data['work_data']);
-        $outcity_data = json_encode($data['outcity_data']);
-        $permit_data = json_encode($data['permit_data']);
-        $cuti_data = json_encode($data['cuti_data']);
-        $sick_data = json_encode($data['sick_data']);
-        $birthday_data = json_encode($data['birthday_data']);
-        $announcement_data = json_encode($data['announcement_data'])
-
+        $notwork_data = json_encode($data['notwork_data'], JSON_FORCE_OBJECT);
+        $work_data = json_encode($data['work_data'], JSON_FORCE_OBJECT);
+        $outcity_data = json_encode($data['outcity_data'], JSON_FORCE_OBJECT);
+        $permit_data = json_encode($data['permit_data'], JSON_FORCE_OBJECT);
+        $cuti_data = json_encode($data['cuti_data'], JSON_FORCE_OBJECT);
+        $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
+        $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
+        $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
     ?>
         <script>
             var notwork_data = <?= $notwork_data ?>;
@@ -412,17 +411,15 @@ class dashboard_layout extends dashboard_template
                 $.each(work_data, function(key, val) {
                     if (val.group == group) {
                         team_work[key] = val;
-                    } else {
-                        team_work = [];
                     }
                 });
-                var count_work = Object.keys(team_work);
-                return count_work.length;
+                var count_work = Object.keys(team_work).length;
+                return count_work;
             }
 
             function dom_count_team(group) {
-                var work = Object.keys(work_data);
-                if (work.length > 0) {
+                var work = Object.keys(work_data).length;
+                if (work > 0) {
                     $.each(work_data, function(key, val) {
                         ammount_working = count_team_work(val.group);
                         $('#' + val.group + '-mount-work').html(ammount_working);
