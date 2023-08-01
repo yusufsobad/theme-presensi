@@ -1,5 +1,5 @@
 $(".footer-carousel").slick({
-  slidesToShow: 17,
+  slidesToShow: 18,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,

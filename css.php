@@ -44,6 +44,7 @@ class theme_css
 		$loc = $this->lokasi();
 		$css = array(
 			'SASI-UI'		=> $loc . 'sasi/css/sasi-ui.css',
+			'SASI-ICON'		=> $loc . 'sasi/css/sasi-icon.css',
 		);
 
 		$check = array_filter($idx);
@@ -61,7 +62,7 @@ class theme_css
 	{
 		$loc = $this->lokasi();
 		$css = array(
-			'font-awesome-4'		=> $loc . 'plugin/font-awesome-4/font-awesome.min.css',
+			'font-awesome-4'		=> $loc . 'plugin/font-awesome-4/font-awesome.css',
 			'slick-carousel'		=> $loc . 'plugin/slick-carousel/slick/slick.css',
 		);
 

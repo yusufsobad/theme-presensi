@@ -172,9 +172,9 @@ class dashboard_layout extends dashboard_template
         </div>
 
         <div class="scan_alert">
-            <div id="warning_scan" class="alert bg-warning radius-md bold" role="alert" style="font-size:larger; display:none;"></div>
-            <div id="success_scan" class="alert bg-success radius-md bold" role="alert" style="font-size:larger; display:none;"></div>
-            <div id="danger_scan" class="alert bg-danger radius-md bold" role="alert" style="font-size:larger; display:none;"></div>
+            <div id="warning_scan" class="alert sasi-alert-warning bg-warning radius-md bold  flex align-center" role="alert" style="font-size:larger; display:none;"></div>
+            <div id="success_scan" class="alert sasi-alert-success bg-success radius-md bold flex align-center" role="alert" style="font-size:larger; display:none;"></div>
+            <div id="danger_scan" class="alert sasi-alert-danger bg-danger radius-md bold  flex align-center" role="alert" style="font-size:larger; display:none;"></div>
         </div>
     <?php
     }
@@ -245,7 +245,7 @@ class dashboard_layout extends dashboard_template
                 var html = '';
                 html += '<div id="' + key + '-notwork" class="' + key + '-notwork col-xs-2 space">'
                 html += ' <div class="bg-deep-grey radius-xs text-center">'
-                html += '<img class="radius-xs" width="48px" height="48px" src="' + url + val.image + '" alt="">'
+                html += '<img class="radius-xs" width="100%" height="100%" src="' + url + val.image + '" alt="">'
                 html += '</div>'
                 html += '<div class="space text-center">'
                 html += ' <span class="light">' + val.name + '</span>'
@@ -580,32 +580,37 @@ class dashboard_layout extends dashboard_template
 
             // ALERT KETIKA DOUBLE SCAN
             function alert_already_scan(data) {
-                var mesage = "Anda Sudah Scan Masuk !!!"
+                var mesage = '';
+                mesage += '<i class="icon-Caution" style="font-size: 39px;margin-right: 10px;"></i>'
+                mesage += '<h5 style="font-size: 28px;">You’re already scan</h5>'
                 $('#warning_scan').html(mesage);
                 $('#warning_scan').fadeIn();
                 setTimeout(function() {
                     $("#warning_scan").fadeOut();
-                }, 2000);
+                }, 3000);
             }
 
             // ALLERT KETIKA SUKSES SCAN
             function alert_success_scan(data) {
-                var mesage = "Anda Berhasil Scan Masuk"
+                var mesage = '';
+                mesage += '<i class="icon-Success" style="font-size: 39px;margin-right: 10px;"></i>'
+                mesage += '<h5 style="font-size: 28px;">Your Scan is success</h5>'
                 $('#success_scan').html(mesage);
                 $('#success_scan').fadeIn();
                 setTimeout(function() {
                     $("#success_scan").fadeOut();
-                }, 2000);
+                }, 3000);
             }
 
-            // ALLERT KETIKA SUKSES SCAN
-            function alert_success_scan_home(data) {
-                var mesage = "Anda Berhasil Scan Pulang"
-                $('#success_scan').html(mesage);
-                $('#success_scan').fadeIn();
+            function alert_failed_scan(data) {
+                var mesage = '';
+                mesage += '<i class="icon-Not-Allowed" style="font-size: 39px;margin-right: 10px;"></i>'
+                mesage += '<h5 style="font-size: 28px;">NIK isn’t Registered</h5>'
+                $('#danger_scan').html(mesage);
+                $('#danger_scan').fadeIn();
                 setTimeout(function() {
-                    $("#success_scan").fadeOut();
-                }, 2000);
+                    $("#danger_scan").fadeOut();
+                }, 3000);
             }
 
             // ALLERT GLOBAL
