@@ -12,7 +12,7 @@ abstract class dashboard_template
         <div style="margin-bottom: 10px;">
             <div class="row mt-xs footer-section">
                 <div class="col-xs-12 bg-dark-blue radius-md">
-                    <div id="group_not_work" class="row footer-carousel" style="padding: 20px 33px 5px 33px;">
+                    <div id="group_not_work" class="row footer-carousel" style="padding: 20px 35px 5px 35px;">
                         <?php
                         foreach ($data as $value) :
                             $img = isset($value['url_img']) ? $value['url_img'] : 'https://cdn.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.webp';
@@ -157,7 +157,7 @@ abstract class dashboard_template
             <img width="50%" class="bg-announ" src="<?= $base_url ?>image/background/bg-speaker.png" alt="">
             <h5 class="light-grey">Announcement</h5>
             <h6 id="announcement-title" class="light-grey pt-xs"></h6>
-            <div id="announcement" class="row pl-xs mt-xs">
+            <div id="announcement" class="row pl-xs mt-xs pr-xs">
 
             </div>
         </div>

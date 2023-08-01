@@ -774,8 +774,8 @@ span {
   height: 18px;
   border: unset;
   position: absolute;
-  left: 10px;
-  top: 40px;
+  left: 12px;
+  top: 47px;
 }
 
 .next {
@@ -784,8 +784,8 @@ span {
   height: 18px;
   border: unset;
   position: absolute;
-  right: 10px;
-  top: 40px;
+  right: 11px;
+  top: 47px;
 }
 
 /* BUTTON GLOBAL ALERT */
