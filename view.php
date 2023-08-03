@@ -10,6 +10,9 @@ require dirname(__FILE__) . '/js.php';
 
 class dashboard_layout extends dashboard_template
 {
+
+    protected static $data = [];
+
     public static function load_here($data = [])
     {
 ?>
@@ -17,13 +20,14 @@ class dashboard_layout extends dashboard_template
             <?php self::header($data) ?>
             <?php self::body($data) ?>
         </div>
-        <?php self::_vendor(); ?>
-        <?php self::data_json($data['args']); ?>
-        <?php self::alert(); ?>
-        <?php self::_content(); ?>
-        <?php self::custom_script($data) ?>
+        <?php
+            self::$data = $data;
 
-    <?php
+            self::_vendor();
+            self::_data_json();
+            self::alert();
+            self::_content();
+            self::custom_script();
     }
 
     public static function header($data = [])
@@ -179,18 +183,18 @@ class dashboard_layout extends dashboard_template
     <?php
     }
 
-    public static function custom_script($data)
+    public static function custom_script()
     {
-        $script = isset($data['script']) ? $data['script'] : '';
-    ?>
-        <?= $script ?>
-    <?
+        $script = isset(self::$data['script']) ? self::$data['script'] : '';
+        echo $script;
     }
 
 
 
-    public static function data_json($data)
+    public static function _data_json()
     {
+        $data = self::$data['args'];
+
         $notwork_data = json_encode($data['notwork_data'], JSON_FORCE_OBJECT);
         $work_data = json_encode($data['work_data'], JSON_FORCE_OBJECT);
         $outcity_data = json_encode($data['outcity_data'], JSON_FORCE_OBJECT);
