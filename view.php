@@ -694,7 +694,7 @@ class dashboard_layout extends dashboard_template
 
     // DATE - YEAR CONVERSION =================
     // ========================================
-    function indo_day($day)
+    function static indo_day($day)
     {
         $hari = array(
             1 =>   'Senin',
@@ -714,7 +714,7 @@ class dashboard_layout extends dashboard_template
         return  $hari[(int)$day];
     }
 
-    function simple_date_indo($tanggal)
+    function static simple_date_indo($tanggal)
     {
 
         $bulan = array(
@@ -740,7 +740,7 @@ class dashboard_layout extends dashboard_template
         return  $pecahkan[0] . ' ' . $bulan[(int)$pecahkan[1]];
     }
 
-    function short_month($month)
+    function static short_month($month)
     {
         $bulan = array(
             1 =>   'Jan',
