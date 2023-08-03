@@ -199,6 +199,9 @@ class dashboard_layout extends dashboard_template
         $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
         $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
         $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
+
+        $count_employe = json_encode($data['count_employes']);
+        $count_internship = $data['count_internship']
     ?>
         <script>
             var notwork_data = <?= $notwork_data ?>;
@@ -209,6 +212,8 @@ class dashboard_layout extends dashboard_template
             var sick_data = <?= $sick_data ?>;
             var birthday_data = <?= $birthday_data ?>;
             var announcement_data = <?= $announcement_data ?>;
+            var count_employe = <?= $count_employe ?>;
+            var count_internship = <?= $count_internship ?>
         </script>
     <?php
     }
@@ -232,6 +237,14 @@ class dashboard_layout extends dashboard_template
                 dom_count_team();
                 birthday_content();
                 announcement_content();
+
+                dom_ammount_work();
+                dom_ammount_sickpermit();
+                dom_ammount_outcity();
+                dom_ammount_permit();
+                dom_ammount_cuti();
+                dom_ammount_employe();
+                dom_ammount_internship();
             }
 
             function notwork_content() {
@@ -457,6 +470,15 @@ class dashboard_layout extends dashboard_template
                 var count = Object.keys(cuti_data);
                 var ammount = count.length;
                 $('#ammount-cuti').html(ammount)
+            }
+
+            function dom_ammount_employe() {
+
+                $('#ammount-employe').html(count_employe)
+            }
+
+            function dom_ammount_internship() {
+                $('#ammount-internship').html(count_internship)
             }
 
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
