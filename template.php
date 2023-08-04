@@ -38,7 +38,7 @@ abstract class dashboard_template
 
     public static function card_company($data = [])
     {
-        $color = isset($data['color']) ? $data['color'] : 'light';
+        $color = 'light';
         $title = isset($data['title']) ? $data['title'] : '';
         $logo = isset($data['logo']) ? $data['logo'] : '';
         $count = isset($data['count']) ? $data['count'] : 0;
@@ -88,6 +88,7 @@ abstract class dashboard_template
             $width = isset($val['width']) ? $val['width'] : '20';
             $qty = isset($val['qty']) && $val['qty'] !== '' ? $val['qty'] : 0;
             $color = isset($val['color']) ? $val['color'] : 'grey';
+
             $id = isset($val['id']) ? $val['id'] : '';
             $class = isset($val['class']) ? $val['class'] : '';
         ?>
@@ -95,7 +96,7 @@ abstract class dashboard_template
                 <div class="bg-light-grey radius-md p-xs" style="height:154px;">
                     <div class="row">
                         <div class="col-xs-8 flex align-center">
-                            <div class="team-mark bg-<?= $color ?> mr-xs"></div>
+                            <div class="team-mark mr-xs" style="background-color:<?= $color ?>"></div>
                             <p><?= $title ?></p>
                         </div>
                         <div class="col-xs-4 p-0">
@@ -103,7 +104,7 @@ abstract class dashboard_template
                                 <div class="leaf-number-left radius-bottom-left-md radius-top-right-md bg-deep-grey grid align-center text-center grey" style="margin-right: -15px; margin-left: -7px;">
                                     <p id="<?= $id ?>-mount-work">0</p>
                                 </div>
-                                <div class="leaf-number-right radius-bottom-left-md radius-top-right-md bg-<?= $color ?> grid align-center text-center light">
+                                <div class="leaf-number-right radius-bottom-left-md radius-top-right-md grid align-center text-center light" style="background-color:<?= $color ?>">
                                     <p><?= $qty ?></p>
                                 </div>
                             </div>
