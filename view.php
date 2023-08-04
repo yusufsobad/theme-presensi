@@ -20,14 +20,14 @@ class dashboard_layout extends dashboard_template
             <?php self::header($data) ?>
             <?php self::body($data) ?>
         </div>
-        <?php
-            self::$data = $data;
+    <?php
+        self::$data = $data;
 
-            self::_vendor();
-            self::_data_json();
-            self::alert();
-            self::_content();
-            self::custom_script();
+        self::_vendor();
+        self::_data_json();
+        self::alert();
+        self::_content();
+        self::custom_script();
     }
 
     public static function header($data = [])
@@ -636,6 +636,17 @@ class dashboard_layout extends dashboard_template
                 $('#danger_scan').fadeIn();
                 setTimeout(function() {
                     $("#danger_scan").fadeOut();
+                }, 3000);
+            }
+
+            function sasi_alert(title, type) {
+                var mesage = '';
+                mesage += '<i class="icon-Not-Allowed" style="font-size: 39px;margin-right: 10px;"></i>'
+                mesage += '<h5 style="font-size: 28px;">' + title + '</h5>'
+                $('#' + type + '').html(mesage);
+                $('#' + type + '').fadeIn();
+                setTimeout(function() {
+                    $('#' + type + '').fadeOut();
                 }, 3000);
             }
 
