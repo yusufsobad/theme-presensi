@@ -281,7 +281,7 @@ class dashboard_layout extends dashboard_template
             }
 
             function work_html(key, data) {
-                if (typeof(data.exclude) != "undefined" && data.exclude !== null || data.exclude == 1) {
+                if (data.exclude == 1) {
                     var time_html = '';
                 } else {
                     if (data.punish == '0') {
