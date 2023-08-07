@@ -711,6 +711,16 @@ span {
   background-color: #ffff;
 }
 
+.mini-pill {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: fit-content;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+  color: white;
+}
+
 /* BUTTON ALLERT */
 .change-time {
   margin: 20px;

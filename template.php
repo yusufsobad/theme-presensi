@@ -158,8 +158,17 @@ abstract class dashboard_template
             <img width="50%" class="bg-announ" src="<?= $base_url ?>image/background/bg-speaker.png" alt="">
             <h5 class="light-grey">Announcement</h5>
             <h6 id="announcement-title" class="light-grey pt-xs"></h6>
-            <div id="announcement" class="row pl-xs mt-xs pr-xs">
-
+            <div id="announcement" class="pl-xs mt-xs pr-xs">
+                <div id="birth" class="row">
+                    <div class="col-xs-6 space">
+                        <div class="mini-pill">Now</div>
+                        <div id="birth_now"></div>
+                    </div>
+                    <div class="col-xs-6 space">
+                        <div class="mini-pill">Next</div>
+                        <div id="birth_next"></div>
+                    </div>
+                </div>
             </div>
         </div>
     <?php

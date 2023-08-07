@@ -201,7 +201,7 @@ class dashboard_layout extends dashboard_template
         $permit_data = json_encode($data['permit_data'], JSON_FORCE_OBJECT);
         $cuti_data = json_encode($data['cuti_data'], JSON_FORCE_OBJECT);
         $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
-        $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
+        $birthday_now_data = json_encode($data['birthday_now_data'], JSON_FORCE_OBJECT);
         $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
 
         $count_employe = json_encode($data['count_employes']);
@@ -214,7 +214,7 @@ class dashboard_layout extends dashboard_template
             var permit_data = <?= $permit_data ?>;
             var cuti_data = <?= $cuti_data ?>;
             var sick_data = <?= $sick_data ?>;
-            var birthday_data = <?= $birthday_data ?>;
+            var birthday_now_data = <?= $birthday_now_data ?>;
             var announcement_data = <?= $announcement_data ?>;
             var count_employe = <?= $count_employe ?>;
             var count_internship = <?= $count_internship ?>
@@ -239,7 +239,8 @@ class dashboard_layout extends dashboard_template
                 cuti_content();
                 sick_content();
                 dom_count_team();
-                birthday_content();
+                birthday_now_content();
+                birthday_next_content();
                 announcement_content();
 
                 dom_ammount_work();
@@ -379,21 +380,30 @@ class dashboard_layout extends dashboard_template
                 return html;
             }
 
-            function birthday_content() {
+            function birthday_now_content() {
                 $('#announcement-title').html('Birthday This Month');
-                $.each(birthday_data, function(key, val) {
-                    $("#announcement").append(birthday_html(key, val));
+                $.each(birthday_now_data, function(key, val) {
+                    $("#birth_now").append(birthday_html(key, val));
+                });
+            }
+
+            function birthday_next_content() {
+                $('#announcement-title').html('Birthday This Month');
+                $.each(birthday_next_data, function(key, val) {
+                    $("#birth_next").append(birthday_html(key, val));
                 });
             }
 
             function birthday_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var html = '';
-                html += '<div class="col-xs-3 space birthday">'
+                html += '<div class="col-xs-6 space birthday">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="100%" src="' + url + data.image + '">'
                 html += '</div>'
                 html += '<div class="space text-center">'
-                html += '<span class="light">' + data.name + '</span>'
+                html += '<span class="light">' + nickname[0] + '</span>'
                 html += '</div>'
                 return html
             }
