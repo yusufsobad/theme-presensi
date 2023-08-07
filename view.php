@@ -201,7 +201,7 @@ class dashboard_layout extends dashboard_template
         $permit_data = json_encode($data['permit_data'], JSON_FORCE_OBJECT);
         $cuti_data = json_encode($data['cuti_data'], JSON_FORCE_OBJECT);
         $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
-        $birthday_now_data = json_encode($data['birthday_now_data'], JSON_FORCE_OBJECT);
+        $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
         $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
 
         $count_employe = json_encode($data['count_employes']);
@@ -214,7 +214,7 @@ class dashboard_layout extends dashboard_template
             var permit_data = <?= $permit_data ?>;
             var cuti_data = <?= $cuti_data ?>;
             var sick_data = <?= $sick_data ?>;
-            var birthday_now_data = <?= $birthday_now_data ?>;
+            var birthday_data = <?= $birthday_data ?>;
             var announcement_data = <?= $announcement_data ?>;
             var count_employe = <?= $count_employe ?>;
             var count_internship = <?= $count_internship ?>
@@ -382,15 +382,19 @@ class dashboard_layout extends dashboard_template
 
             function birthday_now_content() {
                 $('#announcement-title').html('Birthday This Month');
-                $.each(birthday_now_data, function(key, val) {
-                    $("#birth_now").append(birthday_html(key, val));
+                $.each(birthday_data, function(key, val) {
+                    if (val.status == 1) {
+                        $("#birth_now").append(birthday_html(key, val));
+                    }
                 });
             }
 
             function birthday_next_content() {
                 $('#announcement-title').html('Birthday This Month');
-                $.each(birthday_next_data, function(key, val) {
-                    $("#birth_next").append(birthday_html(key, val));
+                $.each(birthday_data, function(key, val) {
+                    if (val.status == 1) {
+                        $("#birth_next").append(birthday_html(key, val));
+                    }
                 });
             }
 
@@ -415,7 +419,7 @@ class dashboard_layout extends dashboard_template
 
             function announcement_html(data) {
                 var html = '';
-                html += '<div id="announ-info" class="col-xs-12">'
+                html += '<div id="announ-info" class="col-xs-12 p-0">'
                 html += '<div class="flex align-center">'
                 html += '<img width="22px" src="' + base_url + 'image/icon/ic-date-star.png" alt="">'
                 html += '<h6 class="p-xs light">' + data.date + '</h6>'
