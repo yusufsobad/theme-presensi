@@ -281,10 +281,14 @@ class dashboard_layout extends dashboard_template
             }
 
             function work_html(key, data) {
-                if (data.type == 1) {
-                    var time_html = '<div class="text-small red">' + data.time + '</div>'
+                if (typeof(data.exclude) != "undefined" && data.exclude !== null || data.exclude == 1) {
+                    var time_html = '';
                 } else {
-                    var time_html = '<div class="text-small black">' + data.time + '</div>'
+                    if (data.punish == '0') {
+                        var time_html = '<div class="text-small black">' + data.time + '</div>'
+                    } else {
+                        var time_html = '<div class="text-small red">' + data.time + '</div>'
+                    }
                 }
                 var html = '';
                 html += '<div id="' + key + '-work" class="' + key + '-work col-xs-4 space">'
@@ -668,6 +672,10 @@ class dashboard_layout extends dashboard_template
                 $('#sick_permit').hide();
                 $('#permit_change_time').hide();
                 $('#cuti').hide();
+
+                setTimeout(function() {
+                    $('#alert_global').fadeOut();
+                }, 60000);
             }
 
             // ALLERT GLOBAL SECONDARY
@@ -688,6 +696,10 @@ class dashboard_layout extends dashboard_template
                 $('#out_city').hide();
                 $('#permit').hide();
                 $('#home_permit').hide();
+
+                setTimeout(function() {
+                    $('#alert_global').fadeOut();
+                }, 60000);
             }
 
             load_content();
