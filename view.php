@@ -204,8 +204,10 @@ class dashboard_layout extends dashboard_template
         $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
         $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
 
+
         $count_employe = json_encode($data['count_employes']);
-        $count_internship = $data['count_internship']
+        $count_internship = $data['count_internship'];
+        $count_workout = $data['count_tugas'];
     ?>
         <script>
             var notwork_data = <?= $notwork_data ?>;
@@ -217,7 +219,8 @@ class dashboard_layout extends dashboard_template
             var birthday_data = <?= $birthday_data ?>;
             var announcement_data = <?= $announcement_data ?>;
             var count_employe = <?= $count_employe ?>;
-            var count_internship = <?= $count_internship ?>
+            var count_internship = <?= $count_internship; ?>;
+            var count_workout = <?= $count_workout; ?>;
         </script>
     <?php
     }
@@ -250,6 +253,7 @@ class dashboard_layout extends dashboard_template
                 dom_ammount_cuti();
                 dom_ammount_employe();
                 dom_ammount_internship();
+                dom_ammount_workout();
             }
 
             function notwork_content() {
@@ -507,12 +511,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function dom_ammount_employe() {
-
                 $('#ammount-employe').html(count_employe)
             }
 
             function dom_ammount_internship() {
                 $('#ammount-internship').html(count_internship)
+            }
+
+            function dom_ammount_workout() {
+                $('#ammount-workout').html(count_workout)
             }
 
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
