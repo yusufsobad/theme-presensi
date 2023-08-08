@@ -260,13 +260,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function notwork_html(key, val) {
+                name = val.name;
+                const nickname = name.split(" ");
                 var html = '';
                 html += '<div id="' + key + '-notwork" class="' + key + '-notwork col-xs-2 space">'
                 html += ' <div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="100%" height="100%" src="' + url + val.image + '" alt="">'
                 html += '</div>'
                 html += '<div class="space text-center">'
-                html += ' <span class="light">' + val.name + '</span>'
+                html += ' <span class="light">' + nickname[0] + '</span>'
                 html += '</div>'
                 html += '</div>'
 
@@ -282,6 +284,8 @@ class dashboard_layout extends dashboard_template
             }
 
             function work_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 if (data.exclude == 1) {
                     var time_html = '';
                 } else {
@@ -297,7 +301,7 @@ class dashboard_layout extends dashboard_template
                 html += '<img class="radius-xs" width="48px" height="48px" src="' + url + data.image + '" alt="">'
                 html += '</div>'
                 html += '<div class="space text-center">'
-                html += ' <span class="black">' + data.name + '</span>'
+                html += ' <span class="black">' + nickname[0] + '</span>'
                 html += time_html
                 html += '</div>'
                 html += '</div>'
@@ -311,13 +315,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function permit_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="85%"src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
-                html += '<span class="black">' + data.name + '</span>'
+                html += '<span class="black">' + nickname[0] + '</span>'
                 html += ' </div>'
                 html += ' </div>'
                 return html;
@@ -330,13 +336,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function cuti_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="85%" src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
-                html += '<span class="black">' + data.name + '</span>'
+                html += '<span class="black">' + nickname[0] + '</span>'
                 html += ' </div>'
                 html += ' </div>'
                 return html;
@@ -349,13 +357,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function outcity_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="90%"src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
-                html += '<span class="black">' + data.name + '</span>'
+                html += '<span class="black">' + nickname[0] + '</span>'
                 html += ' </div>'
                 html += ' </div>'
                 return html;
@@ -368,13 +378,15 @@ class dashboard_layout extends dashboard_template
             }
 
             function sick_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6  space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
                 html += '<img class="radius-xs" width="90%" src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
-                html += '<span class="black">' + data.name + '</span>'
+                html += '<span class="black">' + nickname[0] + '</span>'
                 html += ' </div>'
                 html += ' </div>'
                 return html;
@@ -670,13 +682,15 @@ class dashboard_layout extends dashboard_template
 
             // ALLERT GLOBAL
             function alert_scan(nik, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var allert_title = "Mau Kemana?"
                 var allert_sub_title = "Tekan pilihan tombol di bawah"
                 var url_img_employe = url + data.image
                 $('#alert_global').fadeIn();
                 $('#alert_data').val(nik);
                 $('#alert_img_employ').attr('src', url_img_employe);
-                $('#alert_name_employe').html(data.name);
+                $('#alert_name_employe').html(nickname[0]);
                 $('#alert_divisi_employe').html(data.divisi);
                 $('#alert_title').html(allert_title);
                 $('#allert_sub_title').html(allert_sub_title);
@@ -694,13 +708,15 @@ class dashboard_layout extends dashboard_template
 
             // ALLERT GLOBAL SECONDARY
             function second_alert_scan(nik, data) {
+                name = data.name;
+                const nickname = name.split(" ");
                 var allert_title = "Mau Kemana?"
                 var allert_sub_title = "Tekan pilihan tombol di bawah"
                 var url_img_employe = url + data.image
                 $('#alert_global').fadeIn();
                 $('#alert_data').val(nik);
                 $('#alert_img_employ').attr('src', url_img_employe);
-                $('#alert_name_employe').html(data.name);
+                $('#alert_name_employe').html(nickname[0]);
                 $('#alert_divisi_employe').html(data.divisi);
                 $('#alert_title').html(allert_title);
                 $('#allert_sub_title').html(allert_sub_title);
