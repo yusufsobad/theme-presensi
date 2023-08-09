@@ -462,6 +462,8 @@ class dashboard_layout extends dashboard_template
                 $.each(work_data, function(key, val) {
                     if (val.group == group) {
                         team_work[key] = val;
+                    } else {
+                        return 0;
                     }
                 });
                 var count_work = Object.keys(team_work).length;
@@ -472,8 +474,13 @@ class dashboard_layout extends dashboard_template
                 var work = Object.keys(work_data).length;
                 if (work > 0) {
                     $.each(work_data, function(key, val) {
-                        ammount_working = count_team_work(val.group);
-                        $('#' + val.group + '-mount-work').html(ammount_working);
+                        if (typeof(group) != "undefined" && group !== null) {
+                            ammount_working = count_team_work(group);
+                            $('#' + group + '-mount-work').html(ammount_working);
+                        } else {
+                            ammount_working = count_team_work(val.group);
+                            $('#' + val.group + '-mount-work').html(ammount_working);
+                        }
                     });
                 } else {
                     $('#' + group + '-mount-work').html('0');
