@@ -23,7 +23,6 @@ class dashboard_layout extends dashboard_template
     <?php
         self::$data = $data;
 
-        self::_vendor();
         self::_data_json();
         self::alert();
         self::_content();
@@ -749,14 +748,6 @@ class dashboard_layout extends dashboard_template
             load_content();
         </script>
     <?php
-    }
-
-    public static function _vendor()
-    {
-        $loc = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
-    ?>
-        <script src="<?= $loc . 'vendor/jquery/jquery-3-5-0.min.js' ?>"></script>
-<?php
     }
 
     // DATE - YEAR CONVERSION =================
