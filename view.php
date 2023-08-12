@@ -407,7 +407,7 @@ class dashboard_layout extends dashboard_template
             function birthday_next_content() {
                 $('#announcement-title').html('Birthday This Month');
                 $.each(birthday_data, function(key, val) {
-                    if (val.status == 1) {
+                    if (val.status == 0) {
                         $("#birth_next").append(birthday_html(key, val));
                     }
                 });
@@ -747,7 +747,7 @@ class dashboard_layout extends dashboard_template
 
             load_content();
         </script>
-    <?php
+<?php
     }
 
     // DATE - YEAR CONVERSION =================
