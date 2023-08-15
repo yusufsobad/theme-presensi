@@ -737,7 +737,7 @@ class dashboard_layout extends dashboard_template
                 $('#permit_change_time').hide();
                 $('#cuti').hide();
                 $('#workout').hide();
-                $('#go_out_city').hide();
+                $('#out_city').hide();
 
                 setTimeout(function() {
                     $('#alert_global').fadeOut();
