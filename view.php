@@ -117,10 +117,25 @@ class dashboard_layout extends dashboard_template
                         <h2 id="alert_title" class="bold"></h2>
                         <h6 id="alert_sub_title" class="semi-bold space dark-grey"></h6>
                         <div id="alert_button" class="flex align-center justify-center">
+
                             <button onclick="go_out_city(this)" id="out_city" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="23px" src="<?= $base_url ?>icon/ic-plane.png" alt="">
                                     <p class="space">Luar Kota</p>
+                                </div>
+                            </button>
+
+                            <button onclick="out(this)" id="out" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-out.png" alt="">
+                                    <p class="space">Ke Luar</p>
+                                </div>
+                            </button>
+
+                            <button onclick="workout(this)" id="workout" class="change-time">
+                                <div class="flex align-center">
+                                    <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-workout.png" alt="">
+                                    <p class="space">Tugas Luar</p>
                                 </div>
                             </button>
 
@@ -198,6 +213,7 @@ class dashboard_layout extends dashboard_template
         $work_data = json_encode($data['work_data'], JSON_FORCE_OBJECT);
         $outcity_data = json_encode($data['outcity_data'], JSON_FORCE_OBJECT);
         $workout_data = json_encode($data['workout_data'], JSON_FORCE_OBJECT);
+        $tugas_data = json_encode($data['tugas_data'], JSON_FORCE_OBJECT);
         $permit_data = json_encode($data['permit_data'], JSON_FORCE_OBJECT);
         $cuti_data = json_encode($data['cuti_data'], JSON_FORCE_OBJECT);
         $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
@@ -208,17 +224,20 @@ class dashboard_layout extends dashboard_template
         $count_employe = json_encode($data['count_employes']);
         $count_internship = $data['count_internship'];
         $count_workout = $data['count_tugas'];
+
     ?>
         <script>
             var notwork_data = <?= $notwork_data ?>;
             var work_data = <?= $work_data ?>;
             var outcity_data = <?= $outcity_data ?>;
+            var tugas_data = <?= $tugas_data ?>;
             var workout_data = <?= $workout_data ?>;
             var permit_data = <?= $permit_data ?>;
             var cuti_data = <?= $cuti_data ?>;
             var sick_data = <?= $sick_data ?>;
             var birthday_data = <?= $birthday_data ?>;
             var announcement_data = <?= $announcement_data ?>;
+
             var count_employe = <?= $count_employe ?>;
             var count_internship = <?= $count_internship; ?>;
             var count_workout = <?= $count_workout; ?>;
@@ -238,7 +257,6 @@ class dashboard_layout extends dashboard_template
             function load_content() {
                 notwork_content();
                 work_content();
-                outcity_content();
                 workout_content();
                 permit_content();
                 cuti_content();
@@ -356,30 +374,9 @@ class dashboard_layout extends dashboard_template
                 return html;
             }
 
-            function outcity_content() {
-                $.each(outcity_data, function(key, val) {
-                    $("#out_city_content").append(outcity_html(key, val));
-                });
-            }
-
-            function outcity_html(key, data) {
-                name = data.name;
-                const nickname = name.split(" ");
-                var html = '';
-                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
-                html += '<div class="bg-deep-grey radius-xs text-center">'
-                html += '<img class="radius-xs" width="85%"src="' + url + data.image + '">'
-                html += ' </div>'
-                html += '<div class="text-center">'
-                html += '<span class="black">' + nickname[0] + '</span>'
-                html += ' </div>'
-                html += ' </div>'
-                return html;
-            }
-
             function workout_content() {
                 $.each(workout_data, function(key, val) {
-                    $("#work_out_content").append(outcity_html(key, val));
+                    $("#workout_content").append(workout_html(key, val));
                 });
             }
 
@@ -389,7 +386,7 @@ class dashboard_layout extends dashboard_template
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
-                html += '<img class="radius-xs" width="85%" src="' + url + data.image + '">'
+                html += '<img class="radius-xs" width="90%"src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
                 html += '<span class="black">' + nickname[0] + '</span>'
@@ -516,7 +513,7 @@ class dashboard_layout extends dashboard_template
                 $('#ammount-work').html(ammount)
             }
 
-            function dom_ammount_outcity() {
+            function dom_ammount_outcity(data) {
                 var count = Object.keys(outcity_data);
                 var ammount = count.length;
                 $('#ammount-outcity').html(ammount)
@@ -549,7 +546,9 @@ class dashboard_layout extends dashboard_template
             }
 
             function dom_ammount_workout() {
-                $('#ammount-workout').html(count_workout)
+                var count = Object.keys(tugas_data);
+                var ammount = count.length;
+                $('#ammount-workout').html(ammount)
             }
 
             // REFRESH CARAOUSEL AGAR BISA SLIDER KETIKA SCAN
@@ -731,12 +730,14 @@ class dashboard_layout extends dashboard_template
                 $('#alert_divisi_employe').html(data.divisi);
                 $('#alert_title').html(allert_title);
                 $('#allert_sub_title').html(allert_sub_title);
-                $('#out_city').show();
+                $('#out').show();
                 $('#permit').show();
                 $('#home_permit').show();
                 $('#sick_permit').hide();
                 $('#permit_change_time').hide();
                 $('#cuti').hide();
+                $('#workout').hide();
+                $('#go_out_city').hide();
 
                 setTimeout(function() {
                     $('#alert_global').fadeOut();
@@ -760,7 +761,32 @@ class dashboard_layout extends dashboard_template
                 $('#sick_permit').show();
                 $('#permit_change_time').show();
                 $('#cuti').show();
-                $('#out_city').hide();
+                $('#out').hide();
+                $('#permit').hide();
+                $('#home_permit').hide();
+                $('#workout').hide();
+
+                setTimeout(function() {
+                    $('#alert_global').fadeOut();
+                }, 60000);
+            }
+
+            function out_alert_scan(nik, data) {
+                name = data.name;
+                const nickname = name.split(" ");
+                var allert_title = "Mau Kemana?"
+                var allert_sub_title = "Tekan pilihan tombol di bawah"
+                var url_img_employe = url + data.image
+                $('#alert_global').fadeIn();
+                $('#alert_data').val(nik);
+                $('#alert_img_employ').attr('src', url_img_employe);
+                $('#alert_name_employe').html(nickname[0]);
+                $('#alert_divisi_employe').html(data.divisi);
+                $('#alert_title').html(allert_title);
+                $('#allert_sub_title').html(allert_sub_title);
+                $('#out_city').show();
+                $('#workout').show();
+                $('#out').hide();
                 $('#permit').hide();
                 $('#home_permit').hide();
 
