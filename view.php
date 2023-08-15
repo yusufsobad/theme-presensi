@@ -197,6 +197,7 @@ class dashboard_layout extends dashboard_template
         $notwork_data = json_encode($data['notwork_data'], JSON_FORCE_OBJECT);
         $work_data = json_encode($data['work_data'], JSON_FORCE_OBJECT);
         $outcity_data = json_encode($data['outcity_data'], JSON_FORCE_OBJECT);
+        $workout_data = json_encode($data['workout_data'], JSON_FORCE_OBJECT);
         $permit_data = json_encode($data['permit_data'], JSON_FORCE_OBJECT);
         $cuti_data = json_encode($data['cuti_data'], JSON_FORCE_OBJECT);
         $sick_data = json_encode($data['sick_data'], JSON_FORCE_OBJECT);
@@ -212,6 +213,7 @@ class dashboard_layout extends dashboard_template
             var notwork_data = <?= $notwork_data ?>;
             var work_data = <?= $work_data ?>;
             var outcity_data = <?= $outcity_data ?>;
+            var workout_data = <?= $workout_data ?>;
             var permit_data = <?= $permit_data ?>;
             var cuti_data = <?= $cuti_data ?>;
             var sick_data = <?= $sick_data ?>;
@@ -237,6 +239,7 @@ class dashboard_layout extends dashboard_template
                 notwork_content();
                 work_content();
                 outcity_content();
+                workout_content();
                 permit_content();
                 cuti_content();
                 sick_content();
@@ -365,7 +368,28 @@ class dashboard_layout extends dashboard_template
                 var html = '';
                 html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
                 html += '<div class="bg-deep-grey radius-xs text-center">'
-                html += '<img class="radius-xs" width="90%"src="' + url + data.image + '">'
+                html += '<img class="radius-xs" width="85%"src="' + url + data.image + '">'
+                html += ' </div>'
+                html += '<div class="text-center">'
+                html += '<span class="black">' + nickname[0] + '</span>'
+                html += ' </div>'
+                html += ' </div>'
+                return html;
+            }
+
+            function workout_content() {
+                $.each(workout_data, function(key, val) {
+                    $("#work_out_content").append(outcity_html(key, val));
+                });
+            }
+
+            function workout_html(key, data) {
+                name = data.name;
+                const nickname = name.split(" ");
+                var html = '';
+                html += '<div id="' + key + '-permit" class="' + key + '-permit col-xs-6 w-20 space">'
+                html += '<div class="bg-deep-grey radius-xs text-center">'
+                html += '<img class="radius-xs" width="85%" src="' + url + data.image + '">'
                 html += ' </div>'
                 html += '<div class="text-center">'
                 html += '<span class="black">' + nickname[0] + '</span>'
