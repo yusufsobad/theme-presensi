@@ -337,7 +337,7 @@ span {
 }
 
 .space.birthday {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .p-0 {
@@ -561,24 +561,64 @@ span {
   height: 100%;
 }
 
+/*capacity :15 / >=5 */
 .w-100 {
   width: 100%;
 }
+
+/*capacity :14 */
+.w-93 {
+  width: 93.33%;
+}
+
 .w-90 {
   width: 90%;
 }
+
+/*capacity :13 */
+.w-86 {
+  width: 86.67%;
+}
+
+/*capacity :12 */
 .w-80 {
   width: 80%;
 }
+
+/*capacity :11 */
+.w-73 {
+  width: 73.3%;
+}
+
 .w-70 {
   width: 70%;
 }
+
+/*capacity :10 */
+.w-66 {
+  width: 66.67%;
+}
+
+/*capacity :9 */
 .w-60 {
   width: 60%;
 }
+
+/*capacity :8 */
+.w-53 {
+  width: 53.33%;
+}
+
 .w-50 {
   width: 50%;
 }
+
+/*capacity :7 */
+.w-46 {
+  width: 46.67%;
+}
+
+/*capacity :6 */
 .w-40 {
   width: 40%;
 }
@@ -586,6 +626,18 @@ span {
 .w-30 {
   width: 30%;
 }
+
+/*capacity :5 */
+.w-33 {
+  width: 33.33%;
+}
+
+/*capacity :4 */
+.w-26 {
+  width: 26.67%;
+}
+
+/*capacity :3 */
 .w-20 {
   width: 20%;
 }

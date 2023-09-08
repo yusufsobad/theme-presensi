@@ -6,7 +6,15 @@ $(".20-carousel").slick({
   arrows: false,
 });
 
-$(".30-carousel").slick({
+$(".26-carousel").slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+});
+
+$(".33-carousel").slick({
   slidesToShow: 5,
   slidesToScroll: 1,
   autoplay: true,
@@ -15,6 +23,14 @@ $(".30-carousel").slick({
 });
 
 $(".40-carousel").slick({
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+});
+
+$(".46-carousel").slick({
   slidesToShow: 7,
   slidesToScroll: 1,
   autoplay: true,
@@ -22,7 +38,7 @@ $(".40-carousel").slick({
   arrows: false,
 });
 
-$(".50-carousel").slick({
+$(".53-carousel").slick({
   slidesToShow: 8,
   slidesToScroll: 1,
   autoplay: true,
@@ -31,6 +47,14 @@ $(".50-carousel").slick({
 });
 
 $(".60-carousel").slick({
+  slidesToShow: 9,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+});
+
+$(".66-carousel").slick({
   slidesToShow: 10,
   slidesToScroll: 1,
   autoplay: true,
@@ -38,8 +62,8 @@ $(".60-carousel").slick({
   arrows: false,
 });
 
-$(".70-carousel").slick({
-  slidesToShow: 12,
+$(".73-carousel").slick({
+  slidesToShow: 11,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
@@ -47,15 +71,23 @@ $(".70-carousel").slick({
 });
 
 $(".80-carousel").slick({
-  slidesToShow: 14,
+  slidesToShow: 12,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
   arrows: false,
 });
 
-$(".90-carousel").slick({
-  slidesToShow: 15,
+$(".86-carousel").slick({
+  slidesToShow: 13,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+});
+
+$(".93-carousel").slick({
+  slidesToShow: 13,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,

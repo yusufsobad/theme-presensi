@@ -565,8 +565,17 @@ class dashboard_layout extends dashboard_template
                                 arrows: false,
                             });
                             break;
-                        case '30':
-                            $(".30-carousel").slick({
+                        case '26':
+                            $(".26-carousel").slick({
+                                slidesToShow: 4,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '33':
+                            $(".33-carousel").slick({
                                 slidesToShow: 5,
                                 slidesToScroll: 1,
                                 autoplay: true,
@@ -576,6 +585,15 @@ class dashboard_layout extends dashboard_template
                             break;
                         case '40':
                             $(".40-carousel").slick({
+                                slidesToShow: 6,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '46':
+                            $(".46-carousel").slick({
                                 slidesToShow: 7,
                                 slidesToScroll: 1,
                                 autoplay: true,
@@ -583,8 +601,8 @@ class dashboard_layout extends dashboard_template
                                 arrows: false,
                             });
                             break;
-                        case '50':
-                            $(".50-carousel").slick({
+                        case '53':
+                            $(".53-carousel").slick({
                                 slidesToShow: 8,
                                 slidesToScroll: 1,
                                 autoplay: true,
@@ -594,6 +612,15 @@ class dashboard_layout extends dashboard_template
                             break;
                         case '60':
                             $(".60-carousel").slick({
+                                slidesToShow: 9,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '66':
+                            $(".66-carousel").slick({
                                 slidesToShow: 10,
                                 slidesToScroll: 1,
                                 autoplay: true,
@@ -601,26 +628,36 @@ class dashboard_layout extends dashboard_template
                                 arrows: false,
                             });
                             break;
-                        case '70':
-                            $(".70-carousel").slick({
-                                slidesToShow: 12,
+                        case '73':
+                            $(".73-carousel").slick({
+                                slidesToShow: 11,
                                 slidesToScroll: 1,
                                 autoplay: true,
                                 autoplaySpeed: 2000,
                                 arrows: false,
                             });
                             break;
-                        case '80':
-                            $(".80-carousel").slick({
-                                slidesToShow: 14,
+                        case '73':
+                            $(".73-carousel").slick({
+                                slidesToShow: 11,
                                 slidesToScroll: 1,
                                 autoplay: true,
                                 autoplaySpeed: 2000,
                                 arrows: false,
                             });
-                        case '90':
-                            $(".90-carousel").slick({
-                                slidesToShow: 15,
+                            break;
+                        case '86':
+                            $(".86-carousel").slick({
+                                slidesToShow: 13,
+                                slidesToScroll: 1,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: false,
+                            });
+                            break;
+                        case '93':
+                            $(".93-carousel").slick({
+                                slidesToShow: 13,
                                 slidesToScroll: 1,
                                 autoplay: true,
                                 autoplaySpeed: 2000,
@@ -636,6 +673,7 @@ class dashboard_layout extends dashboard_template
                                 arrows: false,
                             });
                             break;
+
                         case 'permit':
                             $(".permit-carousel").slick({
                                 slidesToShow: 5,
