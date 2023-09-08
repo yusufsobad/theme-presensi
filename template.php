@@ -161,7 +161,7 @@ abstract class dashboard_template
             <div id="announcement" class="pl-xs mt-xs pr-xs">
                 <div id="birth" class="row">
                     <div class="col-xs-6 space">
-                        <div class="mini-pill">Now</div>
+                        <div class="mini-pill">Today</div>
                         <div id="birth_now"></div>
                     </div>
                     <div class="col-xs-6 space">

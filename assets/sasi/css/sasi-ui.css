@@ -336,6 +336,10 @@ span {
   padding: 5px;
 }
 
+.space.birthday {
+    padding-top: 15px;
+}
+
 .p-0 {
   padding: 0;
 }
