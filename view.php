@@ -220,9 +220,8 @@ class dashboard_layout extends dashboard_template
         $birthday_data = json_encode($data['birthday_data'], JSON_FORCE_OBJECT);
         $announcement_data = json_encode($data['announcement_data'], JSON_FORCE_OBJECT);
 
-
         $count_employe = json_encode($data['count_employes']);
-        $count_internship = $data['count_internship'];
+        $count_internship = $data['count_internship'] == null ? 0 : $data['count_internship'];
         $count_workout = $data['count_tugas'];
 
     ?>
@@ -274,6 +273,8 @@ class dashboard_layout extends dashboard_template
                 dom_ammount_employe();
                 dom_ammount_internship();
                 dom_ammount_workout();
+
+                refreshAt(17, 00, 00);
             }
 
             function notwork_content() {
@@ -831,6 +832,25 @@ class dashboard_layout extends dashboard_template
                 setTimeout(function() {
                     $('#alert_global').fadeOut();
                 }, 60000);
+            }
+
+            function refreshAt(hours, minutes, seconds) {
+                var now = new Date();
+                var then = new Date();
+
+                if (now.getHours() > hours ||
+                    (now.getHours() == hours && now.getMinutes() > minutes) ||
+                    now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+                    then.setDate(now.getDate() + 1);
+                }
+                then.setHours(hours);
+                then.setMinutes(minutes);
+                then.setSeconds(seconds);
+
+                var timeout = (then.getTime() - now.getTime());
+                setTimeout(function() {
+                    window.location.reload(true);
+                }, timeout);
             }
 
             load_content();
