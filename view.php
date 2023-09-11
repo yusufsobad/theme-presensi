@@ -274,7 +274,7 @@ class dashboard_layout extends dashboard_template
                 dom_ammount_internship();
                 dom_ammount_workout();
 
-                refreshAt(05, 00, 00);
+                refreshAt(19, 32, 00);
             }
 
             function notwork_content() {

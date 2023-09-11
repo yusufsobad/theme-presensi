@@ -11,7 +11,7 @@ abstract class dashboard_template
 ?>
         <div style="margin-bottom: 10px;">
             <div class="row mt-xs footer-section">
-                <div class="col-xs-12 bg-dark-blue radius-md">
+                <div class="col-xs-12 bg-dark-blue radius-md" style="height: 111px;">
                     <div id="group_not_work" class="row footer-carousel" style="padding: 20px 35px 5px 35px;">
                         <?php
                         foreach ($data as $value) :
