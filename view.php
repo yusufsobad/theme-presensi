@@ -249,7 +249,7 @@ class dashboard_layout extends dashboard_template
         $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
     ?>
         <script>
-            var url = "https://s.soloabadi.com/system-absen/asset/img/user/";
+            var url = "http://soloabadi-server.ddns.net/system-sobad-group/asset/img/user/";
 
             var base_url = "<?= $base_url ?>"
 
