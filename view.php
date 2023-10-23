@@ -276,7 +276,7 @@ class dashboard_layout extends dashboard_template
 
                 refreshAt(19, 32, 00);
                 auto_go_home_direktur(20);
-                check_alpha(20);
+                check_alpha(1);
                 checkGantiJam(1);
             }
 
@@ -876,7 +876,7 @@ class dashboard_layout extends dashboard_template
                     });
                 }
             }
-            setInterval(auto_go_home_direktur, 60000);
+            setInterval(auto_go_home_direktur, 20000);
 
             function check_alpha(setting_time) {
                 var sekarang = new Date();
@@ -886,7 +886,7 @@ class dashboard_layout extends dashboard_template
                 if (jam == setting_time && menit == 0) {
                     stsnow = false;
 
-                    var data = "ajax=_checkAlpha&object=sobad_api&data=0";
+                    var data = "ajax=_checkAlpha&object=api_sobad&data=0";
                     sobad_ajax('', data, '', false, '', '');
                 }
             }
