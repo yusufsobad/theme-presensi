@@ -118,21 +118,21 @@ class dashboard_layout extends dashboard_template
                         <h6 id="alert_sub_title" class="semi-bold space dark-grey"></h6>
                         <div id="alert_button" class="flex align-center justify-center">
 
-                            <a href="javascript:void(0)" onclick="go_out_city(this)" id="out_city" class="change-time">
+                            <a href="javascript:void(0)" id="out_city" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="23px" src="<?= $base_url ?>icon/ic-plane.png" alt="">
                                     <p class="space">Luar Kota</p>
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="out(this)" id="out" class="change-time">
+                            <a href="javascript:void(0)" id="out" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-out.png" alt="">
                                     <p class="space">Ke Luar</p>
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="workout(this)" id="workout" class="change-time">
+                            <a href="javascript:void(0)" id="workout" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-workout.png" alt="">
                                     <p class="space">Tugas Luar</p>
@@ -146,7 +146,7 @@ class dashboard_layout extends dashboard_template
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="permit(this)" id="permit" class="change-time">
+                            <a href="javascript:void(0)" id="permit" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="13px" src="<?= $base_url ?>icon/ic-permit.png" alt="">
                                     <p class="space">Izin</p>
@@ -154,28 +154,28 @@ class dashboard_layout extends dashboard_template
                             </a>
 
 
-                            <a href="javascript:void(0)" onclick="sick_permit(this)" id="sick_permit" class="change-time">
+                            <a href="javascript:void(0)" id="sick_permit" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="17px" src="<?= $base_url ?>icon/ic-sick.png" alt="">
                                     <p class="space">Sakit</p>
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="home_permit(this)" id="home_permit" class="change-time">
+                            <a href="javascript:void(0)" id="home_permit" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="13px" src="<?= $base_url ?>icon/ic-home.png" alt="">
                                     <p class="space">Pulang</p>
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="permit_change_time(this)" id="permit_change_time" class="change-time">
+                            <a href="javascript:void(0)" id="permit_change_time" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="20px" src="<?= $base_url ?>icon/ic-change-time.png" alt="">
                                     <p class="space">Ganti Jam</p>
                                 </div>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="cuti(this)" id="cuti" class="change-time">
+                            <a href="javascript:void(0)" id="cuti" class="change-time">
                                 <div class="flex align-center">
                                     <img class="icon-btn-alert" width="16px" src="<?= $base_url ?>icon/ic-cuti.png" alt="">
                                     <p class="space">Cuti</p>
