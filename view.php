@@ -249,7 +249,7 @@ class dashboard_layout extends dashboard_template
         $base_url = SITE . '://' . HOSTNAME . '/' . URL . '/theme/' . _theme_folder . '/assets/';
     ?>
         <script>
-            var url = "https://s.soloabadi.com/system-absen/asset/img/user/";
+            var url = "http://soloabadi-server.ddns.net/system-sobad-group/asset/img/user/";
 
             var base_url = "<?= $base_url ?>"
 
@@ -275,6 +275,9 @@ class dashboard_layout extends dashboard_template
                 dom_ammount_workout();
 
                 refreshAt(19, 32, 00);
+                auto_go_home_direktur(20);
+                check_alpha(1);
+                checkGantiJam(1);
             }
 
             function notwork_content() {
@@ -852,6 +855,57 @@ class dashboard_layout extends dashboard_template
                     window.location.reload(true);
                 }, timeout);
             }
+
+            function auto_go_home_direktur(setting_time) {
+                // Mengambil waktu saat ini
+                var sekarang = new Date();
+                var jam = sekarang.getHours();
+                var menit = sekarang.getMinutes();
+
+                if (jam === setting_time) {
+                    $.each(work_data, function(key, val) {
+                        if (val.exclude == 1) {
+                            var no_rfid = val.no_rfid;
+                            var ajx = '_check_scan';
+                            var id = '';
+                            var object = 'dashboard_absensi';
+
+                            data = "ajax=" + ajx + "&object=" + object + "&no_rfid=" + no_rfid;
+                            sobad_ajax(id, data, _dom_scan_work, false);
+                        }
+                    });
+                }
+            }
+            setInterval(auto_go_home_direktur, 20000);
+
+            function check_alpha(setting_time) {
+                var sekarang = new Date();
+                var jam = sekarang.getHours();
+                var menit = sekarang.getMinutes();
+
+                if (jam == setting_time && menit == 0) {
+                    stsnow = false;
+
+                    var data = "ajax=_checkAlpha&object=api_sobad&data=0";
+                    sobad_ajax('', data, '', false, '', '');
+                }
+            }
+            setInterval(check_alpha, 20000);
+
+            function checkGantiJam(setting_time) {
+                var sekarang = new Date();
+                var jam = sekarang.getHours();
+                var menit = sekarang.getMinutes();
+
+
+                if (jam == setting_time && menit == 0) {
+                    stsnow = false;
+
+                    var data = "ajax=_checkGantiJam&object=api_sobad&data=0";
+                    sobad_ajax('', data, '', false, '', '');
+                }
+            }
+            setInterval(checkGantiJam, 20000);
 
             load_content();
         </script>
